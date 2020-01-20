@@ -1,0 +1,20 @@
+version: "3"
+services:
+  mssqldata:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    entrypoint: /bin/bash
+
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - "127.0.0.1:1433:1433"
+    volumes:
+      - /var/opt/mssql
+      - ./sql:/user/src/app
+    working_dir: /usr/src/app
+    #command: sh -c ' chmod +x ./entrypoint.sh; ./entrypoint.sh & /opt/mssql/bin/sqlservr'
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: salasana
+    # volumes_from:
+    #   - mssqldata
