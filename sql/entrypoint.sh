@@ -1,7 +1,7 @@
 #!/bin/bash
 database=Prime
 wait_time=15s
-password=P@55w0rd
+password=salasana12!
 
 # wait for SQL Server to come up
 echo importing data will start in $wait_time...
