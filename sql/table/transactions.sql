@@ -15,7 +15,7 @@ USE Prime;
 GO
 
 CREATE TABLE [dbo].[transactionstmp](
-	[date] [nvarchar](15) NULL,
+	[date] datetime NULL,
 	[saajamaksaja] [nvarchar](65) NULL,
 	[selite] [nvarchar](65) NULL,
 	[viesti] [nvarchar](100) NULL,

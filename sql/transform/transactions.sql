@@ -2,7 +2,7 @@ insert into prime.dbo.transactionstmp
 SELECT t.*
   
 from(
-SELECT  REPLACE(date, '"', '') as date
+SELECT  CONVERT(datetime, REPLACE(date, '"', '') , 103) as date
       ,REPLACE(saajamaksaja, '"', '') as saajamaksaja
       ,REPLACE(selite, '"', '') as selite
       ,REPLACE(REPLACE(Viesti, '''', '') , '"', '') as viesti
@@ -16,3 +16,4 @@ SELECT  REPLACE(date, '"', '') as date
     and t.viesti = tmp.viesti
     and t.amount = tmp.amount 
   where tmp.date is null
+ 
