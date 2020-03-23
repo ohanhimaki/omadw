@@ -39,7 +39,8 @@ do
   #/opt/mssql-tools/bin/sqlcmd -S 0.0.0.0 -U sa -P $password -i "UPDATE $tableName set source = $file where source is null"
 
 
-for entry in transform/*.sql
+
+for entry in transform/transactions.sql
 do
   echo executing $entry
   /opt/mssql-tools/bin/sqlcmd -S 0.0.0.0 -U sa -P $password -i $entry
@@ -47,3 +48,23 @@ done
 
 done
 
+
+for file in data/weight/*.csv
+do
+  # i.e: transform /data/MyTable.csv to MyTable
+  shortname=$(echo $file | cut -f 1 -d '.' | cut -f 2 -d '/')
+  tableName=$database.dbo.$shortname
+  echo importing $tableName from $file
+  /opt/mssql-tools/bin/bcp $tableName in $file -c -t',' -F 2 -S 0.0.0.0 -U sa -P $password
+  #/opt/mssql-tools/bin/sqlcmd -S 0.0.0.0 -U sa -P $password -i "UPDATE $tableName set source = $file where source is null"
+
+
+
+for entry in transform/weight.sql
+do
+  echo executing $entry
+  /opt/mssql-tools/bin/sqlcmd -S 0.0.0.0 -U sa -P $password -i $entry
+done
+
+
+done
