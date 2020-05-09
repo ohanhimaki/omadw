@@ -49,7 +49,7 @@ done
 done
 
 
-for file in data/weight/*.csv
+for file in data/weight/*
 do
   # i.e: transform /data/MyTable.csv to MyTable
   shortname=$(echo $file | cut -f 1 -d '.' | cut -f 2 -d '/')
