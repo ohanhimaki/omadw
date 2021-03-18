@@ -1,4 +1,6 @@
 INSERT INTO Prime.dbo.weighttmp
+SELECT *
+FROM (
 SELECT  CAST(w.[Date] as datetime) Date
       ,cast(REPLACE(w.[Weight] , '"' , '') as decimal(5,2)) Weight
       ,cast(REPLACE(w.[BMI] , '"' , '') as decimal(5,2)) BMI
@@ -9,3 +11,8 @@ SELECT  CAST(w.[Date] as datetime) Date
   FROM [Prime].[dbo].[weight] w
   left join prime.dbo.weighttmp wt on CAST(w.[Date] as datetime) = wt.[Date]
   where wt.Date is null
+         ) x
+WHERE water != 0
+and BodyFat != 0
+and Muscle != 0
+and Bone != 0
