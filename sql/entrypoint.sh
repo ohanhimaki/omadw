@@ -12,14 +12,14 @@ echo importing data...
 # run the init script to create the DB and the tables in /table
 /opt/mssql-tools/bin/sqlcmd -S 0.0.0.0 -U sa -P $password -i ./init.sql
 
-for entry in "table/*.sql"
+for entry in table/*.sql
 do
   echo executing $entry
   /opt/mssql-tools/bin/sqlcmd -S 0.0.0.0 -U sa -P $password -i $entry
 done
 
 #import the data from the csv files
-for entry in "data/*.csv"
+for entry in data/*.csv
 do
   # i.e: transform /data/MyTable.csv to MyTable
   shortname=$(echo $entry | cut -f 1 -d '.' | cut -f 2 -d '/')

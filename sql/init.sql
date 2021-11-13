@@ -1,4 +1,5 @@
-DROP DATABASE Prime
+drop database prime;
 
-CREATE DATABASE Prime;
+CREATE DATABASE Prime; 
 GO
+
