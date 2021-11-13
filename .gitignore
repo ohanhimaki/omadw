@@ -1,3 +1,5 @@
 sql/data/*
 .idea
 Reports/*.pbix
+/OmaDw/bin/
+/OmaDw/obj/
