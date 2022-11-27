@@ -3,3 +3,6 @@ sql/data/*
 Reports/*.pbix
 /OmaDw/bin/
 /OmaDw/obj/
+Datas/transactions/*.csv
+Datas/weight/*.csv
+Datas/weight/weigfht2.eml
