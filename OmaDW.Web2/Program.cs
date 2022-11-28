@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<FinancialDataService>();
+builder.Services.AddSingleton<AccountStatusService>();
 
 builder.Services.AddMudServices();
 var app = builder.Build();
