@@ -1,10 +1,35 @@
-﻿<MudDialog>
+﻿@using OmaDW.Web2.Data
+<MudDialog>
     <DialogContent>
         <MudText>
             Lisää kohdistus
         </MudText>
         @* Form fields:  *@
         <MudForm>
+            @if (form is null)
+            {
+                <div>Ladataan</div>
+            }
+            else
+            {
+
+             <MudDatePicker
+                 Label="Alkaen"
+                 @bind-Date="form.FromDate"
+                 ></MudDatePicker>
+            <MudDatePicker
+                 @bind-Date="form.ToDate"
+                Label="Päättyen"></MudDatePicker>
+            <MudCheckBox
+                Label="Ohjaa koko summa"
+                @bind-Checked="@form.FullPaymentMapped"></MudCheckBox>
+
+            <MudInput
+                Label="Summa"
+                Value="@form.Amount"
+                Disabled="@form.FullPaymentMapped"></MudInput>
+
+            }
 
         </MudForm>
     </DialogContent>
@@ -16,6 +41,23 @@
 @code {
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
 
-    void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    [Parameter] public Transaction Transaction { get; set; }
+
+    public DateTime testi { get; set; }
+
+    public MapPaymentForTime form { get; set; }
+
+    void Submit() => MudDialog.Close(DialogResult.Ok(form));
     void Cancel() => MudDialog.Cancel();
+    protected override void OnInitialized()
+    {
+        form = new MapPaymentForTime(Transaction);
+        base.OnInitialized();
+    }
+
+    public string Key
+    {
+        get { return Transaction.Date.ToInt().ToString() + Transaction.Receiver; }
+    }
+
 }

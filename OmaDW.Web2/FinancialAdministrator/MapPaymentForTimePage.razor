@@ -1,4 +1,6 @@
 ﻿@page "/MapPaymentForTime"
+@using Newtonsoft.Json
+@using OmaDW.Web2.Data
 @inject FinancialDataService FinancialDataService
 @inject IDialogService DialogService
 
@@ -51,7 +53,7 @@
                     @context.Amount
                 </MudTd>
                 <MudTd>
-                    <MudButton OnClick="(e) => OpenToAdd(e) ">Ohjaa</MudButton>
+                    <MudButton OnClick="(e) => OpenToAdd(e,context) ">Ohjaa</MudButton>
                 </MudTd>
 
             </RowTemplate>
@@ -81,10 +83,23 @@
 
     public List<Transaction> TopRowsNotMapped { get; set; }
 
-    private void OpenToAdd(MouseEventArgs mouseEventArgs)
+    private async void OpenToAdd(MouseEventArgs mouseEventArgs, Transaction transaction)
     {
         var options = new DialogOptions { CloseOnEscapeKey = true };
-        DialogService.Show<MapPaymentForTimeForm>("Simple Dialog", options);
+         var parameters = new DialogParameters();
+                parameters.Add("Transaction", transaction );
+
+
+         var dialog = DialogService.Show<MapPaymentForTimeForm>("Simple Dialog", parameters, options);
+
+        var result = await dialog.Result;
+        if (!result.Cancelled)
+        {
+            FinancialDataService.AddMapping((MapPaymentForTime)result.Data);
+        }
+
+
+        // write result as json
     }
 
 }
