@@ -1,5 +1,6 @@
 ﻿@page "/MapPaymentForTime"
 @inject FinancialDataService FinancialDataService
+@inject IDialogService DialogService
 
 <MudContainer Class="mt-16 px-8" MaxWidth="MaxWidth.False">
     <MudGrid>
@@ -28,6 +29,9 @@
                 <MudTh>
                     Summa
                 </MudTh>
+                <MudTh>
+                    Ohjaa
+                </MudTh>
 
             </HeaderContent>
             <RowTemplate>
@@ -45,6 +49,9 @@
                 </MudTd>
                 <MudTd>
                     @context.Amount
+                </MudTd>
+                <MudTd>
+                    <MudButton OnClick="(e) => OpenToAdd(e) ">Ohjaa</MudButton>
                 </MudTd>
 
             </RowTemplate>
@@ -68,10 +75,16 @@
 
     private async void Initialize()
     {
-        TopRowsNotMapped = (await FinancialDataService.GetTransactions()).OrderByDescending(x => x.Amount).Take(10).ToList();
+        TopRowsNotMapped = (await FinancialDataService.GetTransactions()).OrderBy(x => x.Amount).Take(10).ToList();
         await InvokeAsync(StateHasChanged);
     }
 
     public List<Transaction> TopRowsNotMapped { get; set; }
+
+    private void OpenToAdd(MouseEventArgs mouseEventArgs)
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        DialogService.Show<MapPaymentForTimeForm>("Simple Dialog", options);
+    }
 
 }
