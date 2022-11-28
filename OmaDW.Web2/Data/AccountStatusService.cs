@@ -19,8 +19,6 @@ public class AccountStatusService
         var datasGroupedByDate = datas.GroupBy(x => x.Date.ToInt()).ToDictionary(x => x.Key, x => x.Sum(x => x.Amount));
         //console write datasgroupedbydate as json
 
-        Console.WriteLine(JsonConvert.SerializeObject(datasGroupedByDate));
-
         var statusPrefixed = new {Date = new DateTime(2022,1,1), Amount = (decimal)25000}; //bogusdatafor development
         var allStatuses = new List<AccountStatus>();
         allStatuses.Add(new AccountStatus()

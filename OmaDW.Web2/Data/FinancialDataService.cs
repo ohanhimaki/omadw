@@ -32,7 +32,6 @@ public class FinancialDataService
             var files = Directory.GetFiles(path, "*.csv", SearchOption.AllDirectories).ToList();
 
             var allTransactions = new List<Transaction>();
-            Console.WriteLine(files.Count);
 
             foreach (var file in files)
             {
@@ -41,14 +40,6 @@ public class FinancialDataService
                     .Where(x => x.Length > 0)
                     .Select(t =>
                         {
-                            // log every field
-                            // Console.WriteLine(t[0]);
-                            // Console.WriteLine(t[1]);
-                            // Console.WriteLine(t[2]);
-                            // Console.WriteLine(t[3]);
-                            // Console.WriteLine(t[4]);
-
-
 
                             return new Transaction
                             {
