@@ -21,7 +21,7 @@ public class AccountStatusService
 
         Console.WriteLine(JsonConvert.SerializeObject(datasGroupedByDate));
 
-        var statusPrefixed = new {Date = DateTime.Today, Amount = (decimal)15300}; //bogusdatafor development
+        var statusPrefixed = new {Date = new DateTime(2022,1,1), Amount = (decimal)25000}; //bogusdatafor development
         var allStatuses = new List<AccountStatus>();
         allStatuses.Add(new AccountStatus()
         {
@@ -44,6 +44,23 @@ public class AccountStatusService
                 Amount = currentStatus
             });
             date = date.AddDays(-1);
+
+        }
+         date = statusPrefixed.Date.AddDays(1);
+        var maxDate = datasGroupedByDate.Select(x => x.Key).Max(x => x);
+         currentStatus = statusPrefixed.Amount;
+        while (date.ToInt() <= maxDate)
+        {
+            if(datasGroupedByDate.TryGetValue(date.ToInt(), out var amount))
+            {
+                currentStatus += amount;
+            }
+            allStatuses.Add(new AccountStatus()
+            {
+                Date = date,
+                Amount = currentStatus
+            });
+            date = date.AddDays(1);
 
         }
 
