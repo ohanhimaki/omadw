@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace OmaDW.Web;
+namespace OmaDW.Web2;
 
 public class FinancialDataService
 {
@@ -88,6 +88,17 @@ public class FinancialDataService
 
     public List<Transaction> Transactions { get; set; } = new List<Transaction>();
     public string Toimiiko { get; set; } = "Toimii";
+
+    public async Task<List<Transaction>> GetTransactionsForApi()
+    {
+        //wait if not initialized
+        while (!_initialized)
+        {
+            await Task.Delay(100);
+        }
+
+        return Transactions;
+    }
 
     public async Task<List<Transaction>> GetTransactions()
     {

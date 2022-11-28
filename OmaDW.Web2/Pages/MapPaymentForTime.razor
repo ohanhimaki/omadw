@@ -1,0 +1,77 @@
+﻿@page "/MapPaymentForTime"
+@inject FinancialDataService FinancialDataService
+
+<MudContainer Class="mt-16 px-8" MaxWidth="MaxWidth.False">
+    <MudGrid>
+        <MudTable
+            T="Transaction"
+            Items="TopRowsNotMapped">
+            <HeaderContent>
+
+                @* public DateTime Date { get; set; } *@
+                @* public string Receiver { get; set; } *@
+                @* public string Description { get; set; } *@
+                @* public string Message { get; set; } *@
+                @* public decimal Amount { get; set; } *@
+                <MudTh>
+                    Date
+                </MudTh>
+                <MudTh>
+                    Saaja/Maksaja
+                </MudTh>
+                <MudTh>
+                    Selite
+                </MudTh>
+                <MudTh>
+                    Viesti
+                </MudTh>
+                <MudTh>
+                    Summa
+                </MudTh>
+
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd>
+                    @context.Date
+                </MudTd>
+                <MudTd>
+                    @context.Receiver
+                </MudTd>
+                <MudTd>
+                    @context.Description
+                </MudTd>
+                <MudTd>
+                    @context.Message
+                </MudTd>
+                <MudTd>
+                    @context.Amount
+                </MudTd>
+
+            </RowTemplate>
+
+
+        </MudTable>
+
+    </MudGrid>
+</MudContainer>
+
+
+
+@code {
+
+    protected override void OnInitialized()
+    {
+
+        Initialize();
+        base.OnInitialized();
+    }
+
+    private async void Initialize()
+    {
+        TopRowsNotMapped = (await FinancialDataService.GetTransactions()).OrderByDescending(x => x.Amount).Take(10).ToList();
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public List<Transaction> TopRowsNotMapped { get; set; }
+
+}
