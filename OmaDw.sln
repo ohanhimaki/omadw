@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmaDw", "OmaDw.csproj", "{DA2F0B77-25C5-46DE-8F3B-3FBF9C917970}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmaDw", "OmaDW\OmaDw.csproj", "{DA2F0B77-25C5-46DE-8F3B-3FBF9C917970}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmaDW.Web2", "..\OmaDW.Web2\OmaDW.Web2.csproj", "{014084C6-CEA0-4D14-BD41-12072CAF4CF6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmaDW.Web2", "OmaDW.Web2\OmaDW.Web2.csproj", "{014084C6-CEA0-4D14-BD41-12072CAF4CF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
