@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace OmaDW.Web2.Data;
 
 public class MapPaymentForTime
@@ -50,6 +52,7 @@ public class MapPaymentForCategory
     public string Category { get; set; }
     public string SubCategory { get; set; }
 
+    [JsonIgnore]
     public string MappedLabel =>
         ReceiverMapped ?? TransactionMapped?.Date.ToString("dd.MM.yyyy") + "-" + TransactionMapped.Receiver;
 
@@ -67,8 +70,30 @@ public class MapPaymentForCategory
             return false;
         }
         MapPaymentForCategory t = (MapPaymentForCategory)obj;
-        return ((ReceiverMapped ?? "") == (t.ReceiverMapped ?? "") && ((TransactionMapped is null && t.TransactionMapped is null) || TransactionMapped.Equals(t.TransactionMapped)) && Category == t.Category && SubCategory == t.SubCategory );
+        if (Category != t.Category || SubCategory != t.SubCategory)
+        {
+            return false;
+        }
+
+        if (ReceiverMapped != null && t.ReceiverMapped != null)
+        {
+            return ReceiverMapped == t.ReceiverMapped;
+        }
+        if (TransactionMapped != null && t.TransactionMapped != null)
+        {
+            return TransactionMapped == t.TransactionMapped;
+        }
+
+        return false;
     }
 
+    protected bool Equals(MapPaymentForCategory other)
+    {
+        return Equals(TransactionMapped, other.TransactionMapped) && ReceiverMapped == other.ReceiverMapped && Category == other.Category && SubCategory == other.SubCategory;
+    }
 
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(TransactionMapped, ReceiverMapped, Category, SubCategory);
+    }
 }

@@ -94,10 +94,7 @@ public class FinancialDataService
 
     private async Task<List<MapPaymentForCategory>> ReadDataMappingsByCategoryFromFile()
     {
-        //file is TransactionTimeMappings.json
         var path = _configuration["Data:SaveLocation"];
-        // check if file exists
-        // var file = Path.Combine(path, "TransactionTimeMappings.json");
         var file = Path.Combine(path, "TransactionCategoryMappings.json");
         if (!File.Exists(file))
         {
@@ -118,10 +115,8 @@ public class FinancialDataService
 
     private async Task<List<MapPaymentForTime>> ReadDataMappingsByTimeFromFile()
     {
-        //file is TransactionTimeMappings.json
         var path = _configuration["Data:SaveLocation"];
         // check if file exists
-        // var file = Path.Combine(path, "TransactionTimeMappings.json");
         var file = Path.Combine(path, "TransactionTimeMappings.json");
         if (!File.Exists(file))
         {
@@ -200,7 +195,7 @@ public class FinancialDataService
     {
         var path = _configuration["Data:SaveLocation"];
         var file = Path.Combine(path, "TransactionCategoryMappings.json");
-        var json = JsonConvert.SerializeObject(DataMappingsByTime);
+        var json = JsonConvert.SerializeObject(DataMappingsByCategory);
         await File.WriteAllTextAsync(file, json);
     }
 
@@ -208,5 +203,11 @@ public class FinancialDataService
     {
         DataMappingsByCategory.AddRange(mapPaymentForCategory);
         await SaveTransactionCategoryMappingsFileAsync();
+    }
+    public async void RemoveCategoryMapping(List<MapPaymentForCategory> mapPaymentForCategories)
+    {
+        mapPaymentForCategories.ForEach(x =>DataMappingsByCategory.Remove(x) );
+        await SaveTransactionTimeMappingsFileAsync();
+
     }
 }

@@ -54,6 +54,8 @@
             <ToolBarContent>
                 <MudText Typo="Typo.h6">Ryhmittele kategoriaan</MudText>
                 <MudSpacer />
+
+                <MudSwitch @bind-Checked="ShowOnlyNotMapped" Color="Color.Primary">Näytä vain ohjaamattomat</MudSwitch>
                 <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
             </ToolBarContent>
             <HeaderContent>
@@ -192,9 +194,11 @@
 
     private bool FilterFunction(TransactionContainer arg)
     {
-        return arg.OriginalTransaction.Receiver.Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
+        return
+            (ShowOnlyNotMapped || arg.MapPaymentForTime == null) &&
+            (arg.OriginalTransaction.Receiver.Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
                arg.OriginalTransaction.Description.Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
-               arg.OriginalTransaction.Message.Contains(searchString1, StringComparison.OrdinalIgnoreCase);
+               arg.OriginalTransaction.Message.Contains(searchString1, StringComparison.OrdinalIgnoreCase));
     }
 
     public string Category { get; set; } = "";
@@ -223,11 +227,15 @@
             tmpList.Add(mapPaymentForCategory);
             transactionContainer.SetMapPaymentForCategory(mapPaymentForCategory);
         }
+        Console.WriteLine("Rivejä lisätty: " + tmpList.Count);
         tmpList = tmpList.Distinct().ToList();
+        Console.WriteLine("Rivejä lisätty: " + tmpList.Count);
 
         FinancialDataService.AddCategoryMapping(tmpList);
         await InvokeAsync(StateHasChanged);
 
     }
+
+    public bool ShowOnlyNotMapped { get; set; }
 
 }
