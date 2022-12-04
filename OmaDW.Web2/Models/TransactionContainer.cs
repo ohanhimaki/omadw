@@ -29,4 +29,9 @@ public class TransactionContainer
     {
         MapPaymentForTime = null;
     }
+
+    public void SetMapPaymentForCategory(MapPaymentForCategory mapPaymentForCategory)
+    {
+        MapPaymentForCategory = mapPaymentForCategory;
+    }
 }

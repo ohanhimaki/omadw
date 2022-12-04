@@ -49,17 +49,26 @@ public class MapPaymentForCategory
 
     public string Category { get; set; }
     public string SubCategory { get; set; }
+
+    public string MappedLabel =>
+        ReceiverMapped ?? TransactionMapped?.Date.ToString("dd.MM.yyyy") + "-" + TransactionMapped.Receiver;
+
     public MapPaymentForCategory()
     {
 
     }
 
-    public MapPaymentForCategory(TransactionContainer transaction)
+    //override equals and hashcode
+
+    public override bool Equals(object obj)
     {
-        TransactionMapped = transaction.OriginalTransaction;
+        if (obj == null || GetType() != obj.GetType())
+        {
+            return false;
+        }
+        MapPaymentForCategory t = (MapPaymentForCategory)obj;
+        return ((ReceiverMapped ?? "") == (t.ReceiverMapped ?? "") && ((TransactionMapped is null && t.TransactionMapped is null) || TransactionMapped.Equals(t.TransactionMapped)) && Category == t.Category && SubCategory == t.SubCategory );
     }
-    public MapPaymentForCategory(string receiver)
-    {
-        ReceiverMapped = receiver;
-    }
+
+
 }

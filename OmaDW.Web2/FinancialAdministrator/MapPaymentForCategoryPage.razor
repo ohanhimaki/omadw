@@ -5,15 +5,57 @@
 
 <MudContainer Class="mt-16 px-8" MaxWidth="MaxWidth.False">
     <MudGrid>
-        <MudTable
-            T="TransactionContainer"
-            Dense="true"
-            Elevation="2"
-            Striped="true"
+        <MudItem xs="12">
+            <MudGrid xs="12">
+                <MudItem xs="4">
 
-            Items="TopRowsNotMapped"
-        Filter="container => ApplyFilters(container) "
+
+                <MudAutocomplete
+                    T="string"
+                    Label="Category"
+                    @bind-Value="Category"
+                    CoerceValue="true"
+                    Variant="Variant.Outlined"></MudAutocomplete>
+                </MudItem>
+                <MudItem xs="4">
+                    <MudAutocomplete
+                        T="string"
+                        Label="SubCategory"
+                        @bind-Value="SubCategory"
+                        CoerceValue="true"
+                        Variant="Variant.Outlined"></MudAutocomplete>
+                </MudItem>
+                <MudItem xs="2">
+                    <MudSwitch @bind-Checked="MapReceiver" Color="Color.Primary">Yhdistä saajalla</MudSwitch>
+
+                </MudItem>
+                <MudItem xs="2">
+                    <MudButton
+                        Variant="Variant.Filled"
+                        OnClick="(e) => AddCategory(e)"></MudButton>
+
+                </MudItem>
+            </MudGrid>
+
+        </MudItem>
+        <MudItem>
+
+            <MudTable
+                T="TransactionContainer"
+                Items="TopRowsNotMapped"
+                Filter="FilterFunction"
+                MultiSelection="true"
+                @bind-SelectedItems="@selectedItems1"
+                Dense="true"
+                Elevation="2"
+                Hover="true"
+                Striped="true"
             >
+            <ToolBarContent>
+                <MudText Typo="Typo.h6">Ryhmittele kategoriaan</MudText>
+                <MudSpacer />
+                <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+            </ToolBarContent>
             <HeaderContent>
 
                 @* public DateTime Date { get; set; } *@
@@ -72,19 +114,19 @@
                     @context.OriginalTransaction.Amount
                 </MudTd>
                 <MudTd>
-                    <MudButton OnClick="(e) => OpenToAdd(e,context) ">Ohjaa</MudButton>
+                    <MudButton OnClick="(e) => OpenToAdd(e, context)">Ohjaa</MudButton>
                 </MudTd>
                 <MudTd>
-                    @context.MapPaymentForTime?.Amount
+                    @context.MapPaymentForCategory?.Category
                 </MudTd>
                 <MudTd>
-                    @context.MapPaymentForTime?.FromDate.Value.ToString("dd.MM.yyyy")
+                    @context.MapPaymentForCategory?.SubCategory
                 </MudTd>
                 <MudTd>
-                    @context.MapPaymentForTime?.ToDate.Value.ToString("dd.MM.yyyy")
+                    @context.MapPaymentForCategory?.MappedLabel
                 </MudTd>
                 <MudTd>
-                    <MudButton OnClick="(e) => Remove(e,context) ">Poista</MudButton>
+                    <MudButton OnClick="(e) => Remove(e, context)">Poista</MudButton>
                 </MudTd>
 
             </RowTemplate>
@@ -92,10 +134,14 @@
 
         </MudTable>
 
+        </MudItem>
+
     </MudGrid>
 </MudContainer>
 
 @code {
+
+    private HashSet<TransactionContainer> selectedItems1 = new HashSet<TransactionContainer>();
 
     protected override void OnInitialized()
     {
@@ -130,11 +176,6 @@
         }
     }
 
-    private bool ApplyFilters(TransactionContainer container)
-    {
-        return true;
-    }
-
     private async Task Remove(MouseEventArgs mouseEventArgs, TransactionContainer context)
     {
         var result = await DialogService.ShowMessageBox("Poista ohjaus", "Haluatko varmasti poistaa ohjauksen?", yesText: "Kyllä", noText: "Ei", cancelText: "Peruuta");
@@ -144,6 +185,49 @@
             context.RemoveMapPaymentForTime();
             await InvokeAsync(StateHasChanged);
         }
+    }
+
+
+    public string? searchString1 { get; set; } = "";
+
+    private bool FilterFunction(TransactionContainer arg)
+    {
+        return arg.OriginalTransaction.Receiver.Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
+               arg.OriginalTransaction.Description.Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
+               arg.OriginalTransaction.Message.Contains(searchString1, StringComparison.OrdinalIgnoreCase);
+    }
+
+    public string Category { get; set; } = "";
+    public string SubCategory { get; set; } = "";
+
+    public bool? MapReceiver { get; set; } = true;
+
+    private async void AddCategory(MouseEventArgs args)
+    {
+        var tmpList = new List<MapPaymentForCategory>();
+        foreach (var transactionContainer in selectedItems1.ToList())
+        {
+            var mapPaymentForCategory = new MapPaymentForCategory
+            {
+                Category = Category,
+                SubCategory = SubCategory,
+            };
+            if (MapReceiver.HasValue && MapReceiver.Value)
+            {
+                mapPaymentForCategory.ReceiverMapped = transactionContainer.OriginalTransaction.Receiver;
+            }
+            else
+            {
+                mapPaymentForCategory.TransactionMapped = transactionContainer.OriginalTransaction;
+            }
+            tmpList.Add(mapPaymentForCategory);
+            transactionContainer.SetMapPaymentForCategory(mapPaymentForCategory);
+        }
+        tmpList = tmpList.Distinct().ToList();
+
+        FinancialDataService.AddCategoryMapping(tmpList);
+        await InvokeAsync(StateHasChanged);
+
     }
 
 }

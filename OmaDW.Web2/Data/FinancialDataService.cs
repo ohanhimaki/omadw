@@ -203,4 +203,10 @@ public class FinancialDataService
         var json = JsonConvert.SerializeObject(DataMappingsByTime);
         await File.WriteAllTextAsync(file, json);
     }
+
+    public async void AddCategoryMapping(List<MapPaymentForCategory> mapPaymentForCategory)
+    {
+        DataMappingsByCategory.AddRange(mapPaymentForCategory);
+        await SaveTransactionCategoryMappingsFileAsync();
+    }
 }
