@@ -8,6 +8,10 @@
     <MudGrid>
         <MudTable
             T="TransactionContainer"
+            Dense="true"
+            Elevation="2"
+            Striped="true"
+
             Items="TopRowsNotMapped"
         Filter="container => ApplyFilters(container) "
             >
@@ -54,7 +58,7 @@
             </HeaderContent>
             <RowTemplate>
                 <MudTd>
-                    @context.OriginalTransaction.Date
+                    @context.OriginalTransaction.Date.ToString("dd.MM.yyyy")
                 </MudTd>
                 <MudTd>
                     @context.OriginalTransaction.Receiver
@@ -75,10 +79,10 @@
                     @context.MapPaymentForTime?.Amount
                 </MudTd>
                 <MudTd>
-                    @context.MapPaymentForTime?.FromDate
+                    @context.MapPaymentForTime?.FromDate.Value.ToString("dd.MM.yyyy")
                 </MudTd>
                 <MudTd>
-                    @context.MapPaymentForTime?.ToDate
+                    @context.MapPaymentForTime?.ToDate.Value.ToString("dd.MM.yyyy")
                 </MudTd>
                 <MudTd>
                     <MudButton OnClick="(e) => Remove(e,context) ">Poista</MudButton>
