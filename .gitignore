@@ -6,3 +6,4 @@ Reports/*.pbix
 Datas/transactions/*.csv
 Datas/weight/*.csv
 Datas/weight/weigfht2.eml
+Datas/*.json

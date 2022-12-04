@@ -17,15 +17,24 @@ public class FinancialDataService
 
     //event RefreshDataEventHandler RefreshData;
     public event EventHandler RefreshData;
+    private List<MapPaymentForTime> DataMappings { get; set; }
 
     public async Task Initialize()
     {
+        //ReadDataMappingsFrom file and create a list of DataMappings
+
+
+
         if(_initialized)
         {
             return;
         }
         try
         {
+
+            var dataMappings = await ReadDataMappingsFromFile();
+            DataMappings = dataMappings;
+
             // get path from appsettings
             var path = _configuration["Data:Path"];
 
@@ -78,6 +87,31 @@ public class FinancialDataService
         _initialized = true;
     }
 
+
+    private async Task<List<MapPaymentForTime>> ReadDataMappingsFromFile()
+    {
+        //file is TransactionTimeMappings.json
+        var path = _configuration["Data:SaveLocation"];
+        // check if file exists
+        // var file = Path.Combine(path, "TransactionTimeMappings.json");
+        var file = Path.Combine(path, "TransactionTimeMappings.json");
+        if (!File.Exists(file))
+        {
+            // create file
+            var dataMappingsTemp = new List<MapPaymentForTime>();
+            var jsonTemp = JsonConvert.SerializeObject(dataMappingsTemp);
+            await File.WriteAllTextAsync(file, jsonTemp);
+            return dataMappingsTemp;
+        }
+        else
+        {
+            var json = await File.ReadAllTextAsync(file);
+            var dataMappings = JsonConvert.DeserializeObject<List<MapPaymentForTime>>(json);
+            return dataMappings;
+        }
+
+    }
+
     public List<Transaction> Transactions { get; set; } = new List<Transaction>();
     public string Toimiiko { get; set; } = "Toimii";
 
@@ -102,9 +136,36 @@ public class FinancialDataService
 
         return Transactions;
     }
-
-    public void AddMapping(MapPaymentForTime resultData)
+    public async Task<List<TransactionContainer>> GetTransactionContainers()
     {
-        throw new NotImplementedException();
+        var transactions = await GetTransactions();
+        var transactionContainers = transactions.Select(x => new TransactionContainer(x,
+            DataMappings.SingleOrDefault<MapPaymentForTime>(y =>
+                y.Transaction.Equals(x)))).ToList();
+
+        return transactionContainers;
+
+    }
+
+    public async void AddMapping(MapPaymentForTime resultData)
+    {
+        DataMappings.Add(resultData);
+        await SaveTransactionTimeMappingsFileAsync();
+
+    }
+
+    public async void RemoveMapping(MapPaymentForTime contextMapPaymentForTime)
+    {
+        DataMappings.Remove(contextMapPaymentForTime);
+        await SaveTransactionTimeMappingsFileAsync();
+
+    }
+
+    private async Task SaveTransactionTimeMappingsFileAsync()
+    {
+        var path = _configuration["Data:SaveLocation"];
+        var file = Path.Combine(path, "TransactionTimeMappings.json");
+        var json = JsonConvert.SerializeObject(DataMappings);
+        await File.WriteAllTextAsync(file, json);
     }
 }

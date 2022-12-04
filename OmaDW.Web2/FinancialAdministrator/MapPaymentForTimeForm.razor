@@ -41,7 +41,7 @@
 @code {
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
 
-    [Parameter] public Transaction Transaction { get; set; }
+    [Parameter] public TransactionContainer Transaction { get; set; }
 
     public DateTime testi { get; set; }
 
@@ -57,7 +57,7 @@
 
     public string Key
     {
-        get { return Transaction.Date.ToInt().ToString() + Transaction.Receiver; }
+        get { return Transaction.OriginalTransaction.Date.ToInt().ToString() + Transaction.OriginalTransaction.Receiver; }
     }
 
 }

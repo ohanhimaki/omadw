@@ -21,12 +21,17 @@ public class MapPaymentForTime
         }
     }
 
-    public MapPaymentForTime(Transaction transaction)
+    public MapPaymentForTime()
     {
-        FromDate = transaction.Date;
-        ToDate = transaction.Date;
-        Transaction = transaction;
-        Amount = transaction.Amount;
+
+    }
+
+    public MapPaymentForTime(TransactionContainer transaction)
+    {
+        FromDate = transaction.OriginalTransaction.Date;
+        ToDate = transaction.OriginalTransaction.Date;
+        Transaction = transaction.OriginalTransaction;
+        Amount = transaction.OriginalTransaction.Amount;
         FullPaymentMapped = true;
 
     }

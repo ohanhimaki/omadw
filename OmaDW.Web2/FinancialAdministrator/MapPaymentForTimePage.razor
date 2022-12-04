@@ -7,8 +7,10 @@
 <MudContainer Class="mt-16 px-8" MaxWidth="MaxWidth.False">
     <MudGrid>
         <MudTable
-            T="Transaction"
-            Items="TopRowsNotMapped">
+            T="TransactionContainer"
+            Items="TopRowsNotMapped"
+        Filter="container => ApplyFilters(container) "
+            >
             <HeaderContent>
 
                 @* public DateTime Date { get; set; } *@
@@ -35,25 +37,51 @@
                     Ohjaa
                 </MudTh>
 
+
+                <MudTh Style="border-left: #191c1f">
+                    OhjattuSumma
+                </MudTh>
+                <MudTh>
+                    Alkaen
+                </MudTh>
+                <MudTh>
+                    Päättyen
+                </MudTh>
+                <MudTh>
+                    Poista ohjaus
+                </MudTh>
+
             </HeaderContent>
             <RowTemplate>
                 <MudTd>
-                    @context.Date
+                    @context.OriginalTransaction.Date
                 </MudTd>
                 <MudTd>
-                    @context.Receiver
+                    @context.OriginalTransaction.Receiver
                 </MudTd>
                 <MudTd>
-                    @context.Description
+                    @context.OriginalTransaction.Description
                 </MudTd>
                 <MudTd>
-                    @context.Message
+                    @context.OriginalTransaction.Message
                 </MudTd>
                 <MudTd>
-                    @context.Amount
+                    @context.OriginalTransaction.Amount
                 </MudTd>
                 <MudTd>
                     <MudButton OnClick="(e) => OpenToAdd(e,context) ">Ohjaa</MudButton>
+                </MudTd>
+                <MudTd>
+                    @context.MapPaymentForTime?.Amount
+                </MudTd>
+                <MudTd>
+                    @context.MapPaymentForTime?.FromDate
+                </MudTd>
+                <MudTd>
+                    @context.MapPaymentForTime?.ToDate
+                </MudTd>
+                <MudTd>
+                    <MudButton OnClick="(e) => Remove(e,context) ">Poista</MudButton>
                 </MudTd>
 
             </RowTemplate>
@@ -77,13 +105,13 @@
 
     private async void Initialize()
     {
-        TopRowsNotMapped = (await FinancialDataService.GetTransactions()).OrderBy(x => x.Amount).Take(10).ToList();
+        TopRowsNotMapped = (await FinancialDataService.GetTransactionContainers()).OrderBy(x => x.OriginalTransaction.Amount).Take(500).ToList();
         await InvokeAsync(StateHasChanged);
     }
 
-    public List<Transaction> TopRowsNotMapped { get; set; }
+    public List<TransactionContainer> TopRowsNotMapped { get; set; }
 
-    private async void OpenToAdd(MouseEventArgs mouseEventArgs, Transaction transaction)
+    private async void OpenToAdd(MouseEventArgs mouseEventArgs, TransactionContainer transaction)
     {
         var options = new DialogOptions { CloseOnEscapeKey = true };
          var parameters = new DialogParameters();
@@ -95,11 +123,26 @@
         var result = await dialog.Result;
         if (!result.Cancelled)
         {
+            transaction.SetMapPaymentForTime(result.Data as MapPaymentForTime);
             FinancialDataService.AddMapping((MapPaymentForTime)result.Data);
+            await InvokeAsync(StateHasChanged);
         }
+    }
 
+    private bool ApplyFilters(TransactionContainer container)
+    {
+        return true;
+    }
 
-        // write result as json
+    private async Task Remove(MouseEventArgs mouseEventArgs, TransactionContainer context)
+    {
+        var result = await DialogService.ShowMessageBox("Poista ohjaus", "Haluatko varmasti poistaa ohjauksen?", yesText: "Kyllä", noText: "Ei", cancelText: "Peruuta");
+        if (result.HasValue && result.Value)
+        {
+            FinancialDataService.RemoveMapping(context.MapPaymentForTime);
+            context.RemoveMapPaymentForTime();
+            await InvokeAsync(StateHasChanged);
+        }
     }
 
 }
