@@ -12,14 +12,17 @@
 
                 <MudAutocomplete
                     T="string"
+                    SearchFunc="GetCategories"
                     Label="Category"
                     @bind-Value="Category"
                     CoerceValue="true"
+
                     Variant="Variant.Outlined"></MudAutocomplete>
                 </MudItem>
                 <MudItem xs="4">
                     <MudAutocomplete
                         T="string"
+                    SearchFunc="GetSubCategories"
                         Label="SubCategory"
                         @bind-Value="SubCategory"
                         CoerceValue="true"
@@ -39,102 +42,110 @@
 
         </MudItem>
         <MudItem>
+            @if (TransactionContainers is null || TransactionContainers.Count == 0)
+            {
+                <div>Ladataan...</div>
+            }
+            else
+            {
+
 
             <MudTable
                 T="TransactionContainer"
-                Items="TopRowsNotMapped"
+                Items="TransactionContainers.OrderBy(x => x.OriginalTransaction.Receiver)"
                 Filter="FilterFunction"
                 MultiSelection="true"
                 @bind-SelectedItems="@selectedItems1"
                 Dense="true"
                 Elevation="2"
                 Hover="true"
-                Striped="true"
-            >
-            <ToolBarContent>
-                <MudText Typo="Typo.h6">Ryhmittele kategoriaan</MudText>
-                <MudSpacer />
+                Striped="true">
+                <ToolBarContent>
+                    <MudText Typo="Typo.h6">Ryhmittele kategoriaan</MudText>
+                    <MudSpacer/>
 
-                <MudSwitch @bind-Checked="ShowOnlyNotMapped" Color="Color.Primary">Näytä vain ohjaamattomat</MudSwitch>
-                <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
-            </ToolBarContent>
-            <HeaderContent>
+                    <MudSwitch @bind-Checked="ShowOnlyNotMapped" Color="Color.Primary">Näytä vain ohjaamattomat</MudSwitch>
+                    <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                </ToolBarContent>
+                <HeaderContent>
 
-                @* public DateTime Date { get; set; } *@
-                @* public string Receiver { get; set; } *@
-                @* public string Description { get; set; } *@
-                @* public string Message { get; set; } *@
-                @* public decimal Amount { get; set; } *@
-                <MudTh>
-                    Date
-                </MudTh>
-                <MudTh>
-                    Saaja/Maksaja
-                </MudTh>
-                <MudTh>
-                    Selite
-                </MudTh>
-                <MudTh>
-                    Viesti
-                </MudTh>
-                <MudTh>
-                    Summa
-                </MudTh>
-                <MudTh>
-                    Ohjaa
-                </MudTh>
-
-
-                <MudTh Style="border-left: #191c1f">
-                    OhjattuSumma
-                </MudTh>
-                <MudTh>
-                    Alkaen
-                </MudTh>
-                <MudTh>
-                    Päättyen
-                </MudTh>
-                <MudTh>
-                    Poista ohjaus
-                </MudTh>
-
-            </HeaderContent>
-            <RowTemplate>
-                <MudTd>
-                    @context.OriginalTransaction.Date.ToString("dd.MM.yyyy")
-                </MudTd>
-                <MudTd>
-                    @context.OriginalTransaction.Receiver
-                </MudTd>
-                <MudTd>
-                    @context.OriginalTransaction.Description
-                </MudTd>
-                <MudTd>
-                    @context.OriginalTransaction.Message
-                </MudTd>
-                <MudTd>
-                    @context.OriginalTransaction.Amount
-                </MudTd>
-                <MudTd>
-                    <MudButton OnClick="(e) => OpenToAdd(e, context)">Ohjaa</MudButton>
-                </MudTd>
-                <MudTd>
-                    @context.MapPaymentForCategory?.Category
-                </MudTd>
-                <MudTd>
-                    @context.MapPaymentForCategory?.SubCategory
-                </MudTd>
-                <MudTd>
-                    @context.MapPaymentForCategory?.MappedLabel
-                </MudTd>
-                <MudTd>
-                    <MudButton OnClick="(e) => Remove(e, context)">Poista</MudButton>
-                </MudTd>
-
-            </RowTemplate>
+                    @* public DateTime Date { get; set; } *@
+                    @* public string Receiver { get; set; } *@
+                    @* public string Description { get; set; } *@
+                    @* public string Message { get; set; } *@
+                    @* public decimal Amount { get; set; } *@
+                    <MudTh>
+                        Date
+                    </MudTh>
+                    <MudTh>
+                        Saaja/Maksaja
+                    </MudTh>
+                    <MudTh>
+                        Selite
+                    </MudTh>
+                    <MudTh>
+                        Viesti
+                    </MudTh>
+                    <MudTh>
+                        Summa
+                    </MudTh>
+                    <MudTh>
+                        Ohjaa
+                    </MudTh>
 
 
-        </MudTable>
+                    <MudTh Style="border-left: #191c1f">
+                        Kategoria
+                    </MudTh>
+                    <MudTh>
+                        Ali-kategoria
+                    </MudTh>
+                    <MudTh>
+                        Mäppäys avain
+                    </MudTh>
+                    <MudTh>
+                        Poista ohjaus
+                    </MudTh>
+
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd>
+                        @context.OriginalTransaction.Date.ToString("dd.MM.yyyy")
+                    </MudTd>
+                    <MudTd>
+                        @context.OriginalTransaction.Receiver
+                    </MudTd>
+                    <MudTd>
+                        @context.OriginalTransaction.Description
+                    </MudTd>
+                    <MudTd>
+                        @context.OriginalTransaction.Message
+                    </MudTd>
+                    <MudTd>
+                        @context.OriginalTransaction.Amount
+                    </MudTd>
+                    <MudTd>
+                        <MudButton OnClick="(e) => OpenToAdd(e, context)">Ohjaa</MudButton>
+                    </MudTd>
+                    <MudTd>
+                        @context.MapPaymentForCategory?.Category
+                    </MudTd>
+                    <MudTd>
+                        @context.MapPaymentForCategory?.SubCategory
+                    </MudTd>
+                    <MudTd>
+                        @context.MapPaymentForCategory?.MappedLabel
+                    </MudTd>
+                    <MudTd>
+                        <MudButton OnClick="(e) => Remove(e, context)">Poista</MudButton>
+                    </MudTd>
+
+                </RowTemplate>
+
+
+            </MudTable>
+
+            }
 
         </MudItem>
 
@@ -154,11 +165,11 @@
 
     private async void Initialize()
     {
-        TopRowsNotMapped = (await FinancialDataService.GetTransactionContainers()).OrderBy(x => x.OriginalTransaction.Amount).Take(500).ToList();
+        TransactionContainers = (await FinancialDataService.GetTransactionContainers()).OrderBy(x => x.OriginalTransaction.Amount).ToList();
         await InvokeAsync(StateHasChanged);
     }
 
-    public List<TransactionContainer> TopRowsNotMapped { get; set; }
+    public List<TransactionContainer> TransactionContainers { get; set; }
 
     private async void OpenToAdd(MouseEventArgs mouseEventArgs, TransactionContainer transaction)
     {
@@ -195,7 +206,7 @@
     private bool FilterFunction(TransactionContainer arg)
     {
         return
-            (ShowOnlyNotMapped || arg.MapPaymentForTime == null) &&
+            ((ShowOnlyNotMapped && arg.MapPaymentForTime is null) || !ShowOnlyNotMapped) &&
             (arg.OriginalTransaction.Receiver.Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
                arg.OriginalTransaction.Description.Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
                arg.OriginalTransaction.Message.Contains(searchString1, StringComparison.OrdinalIgnoreCase));
@@ -237,5 +248,14 @@
     }
 
     public bool ShowOnlyNotMapped { get; set; }
+
+    private async Task<IEnumerable<string>> GetCategories(string arg)
+    {
+        return await FinancialDataService.GetCategories(arg);
+    }
+    private async Task<IEnumerable<string>> GetSubCategories(string arg)
+    {
+        return await FinancialDataService.GetSubCategories(arg);
+    }
 
 }

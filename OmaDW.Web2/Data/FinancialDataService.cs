@@ -210,4 +210,13 @@ public class FinancialDataService
         await SaveTransactionTimeMappingsFileAsync();
 
     }
+
+    public async Task<IEnumerable<string>> GetSubCategories(string arg)
+    {
+        return await Task.FromResult(DataMappingsByCategory.Select(x => x.SubCategory).Where(x => x.Contains(arg)).Distinct());
+    }
+    public async Task<IEnumerable<string>> GetCategories(string arg)
+    {
+        return await Task.FromResult(DataMappingsByCategory.Select(x => x.Category).Where(x => x.Contains(arg)).Distinct());
+    }
 }
