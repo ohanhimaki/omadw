@@ -35,7 +35,8 @@
                 <MudItem xs="2">
                     <MudButton
                         Variant="Variant.Filled"
-                        OnClick="(e) => AddCategory(e)"></MudButton>
+                        Color="Color.Success"
+                        OnClick="(e) => AddCategory(e)">Tallenna</MudButton>
 
                 </MudItem>
             </MudGrid>
@@ -54,6 +55,7 @@
                 T="TransactionContainer"
                 Items="TransactionContainers.OrderBy(x => x.OriginalTransaction.Receiver)"
                 Filter="FilterFunction"
+                RowsPerPage="100"
                 MultiSelection="true"
                 @bind-SelectedItems="@selectedItems1"
                 Dense="true"
@@ -89,10 +91,6 @@
                     <MudTh>
                         Summa
                     </MudTh>
-                    <MudTh>
-                        Ohjaa
-                    </MudTh>
-
 
                     <MudTh Style="border-left: #191c1f">
                         Kategoria
@@ -102,9 +100,6 @@
                     </MudTh>
                     <MudTh>
                         Mäppäys avain
-                    </MudTh>
-                    <MudTh>
-                        Poista ohjaus
                     </MudTh>
 
                 </HeaderContent>
@@ -125,9 +120,6 @@
                         @context.OriginalTransaction.Amount
                     </MudTd>
                     <MudTd>
-                        <MudButton OnClick="(e) => OpenToAdd(e, context)">Ohjaa</MudButton>
-                    </MudTd>
-                    <MudTd>
                         @context.MapPaymentForCategory?.Category
                     </MudTd>
                     <MudTd>
@@ -135,9 +127,6 @@
                     </MudTd>
                     <MudTd>
                         @context.MapPaymentForCategory?.MappedLabel
-                    </MudTd>
-                    <MudTd>
-                        <MudButton OnClick="(e) => Remove(e, context)">Poista</MudButton>
                     </MudTd>
 
                 </RowTemplate>
@@ -171,42 +160,15 @@
 
     public List<TransactionContainer> TransactionContainers { get; set; }
 
-    private async void OpenToAdd(MouseEventArgs mouseEventArgs, TransactionContainer transaction)
-    {
-        var options = new DialogOptions { CloseOnEscapeKey = true };
-         var parameters = new DialogParameters();
-                parameters.Add("Transaction", transaction );
-
-
-         var dialog = DialogService.Show<MapPaymentForTimeForm>("Simple Dialog", parameters, options);
-
-        var result = await dialog.Result;
-        if (!result.Cancelled)
-        {
-            transaction.SetMapPaymentForTime(result.Data as MapPaymentForTime);
-            FinancialDataService.AddMapping((MapPaymentForTime)result.Data);
-            await InvokeAsync(StateHasChanged);
-        }
-    }
-
-    private async Task Remove(MouseEventArgs mouseEventArgs, TransactionContainer context)
-    {
-        var result = await DialogService.ShowMessageBox("Poista ohjaus", "Haluatko varmasti poistaa ohjauksen?", yesText: "Kyllä", noText: "Ei", cancelText: "Peruuta");
-        if (result.HasValue && result.Value)
-        {
-            FinancialDataService.RemoveMapping(context.MapPaymentForTime);
-            context.RemoveMapPaymentForTime();
-            await InvokeAsync(StateHasChanged);
-        }
-    }
 
 
     public string? searchString1 { get; set; } = "";
 
     private bool FilterFunction(TransactionContainer arg)
     {
+
         return
-            ((ShowOnlyNotMapped && arg.MapPaymentForTime is null) || !ShowOnlyNotMapped) &&
+            ((!ShowOnlyNotMapped || arg.MapPaymentForCategory is null)) &&
             (arg.OriginalTransaction.Receiver.Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
                arg.OriginalTransaction.Description.Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
                arg.OriginalTransaction.Message.Contains(searchString1, StringComparison.OrdinalIgnoreCase));
