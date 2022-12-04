@@ -17,7 +17,8 @@ public class FinancialDataService
 
     //event RefreshDataEventHandler RefreshData;
     public event EventHandler RefreshData;
-    private List<MapPaymentForTime> DataMappings { get; set; }
+    private List<MapPaymentForTime> DataMappingsByTime { get; set; }
+    public List<MapPaymentForCategory> DataMappingsByCategory { get; set; }
 
     public async Task Initialize()
     {
@@ -32,8 +33,11 @@ public class FinancialDataService
         try
         {
 
-            var dataMappings = await ReadDataMappingsFromFile();
-            DataMappings = dataMappings;
+            var dataMappings = await ReadDataMappingsByTimeFromFile();
+            DataMappingsByTime = dataMappings;
+
+            var dataMappingsByCategory = await ReadDataMappingsByCategoryFromFile();
+            DataMappingsByCategory = dataMappingsByCategory;
 
             // get path from appsettings
             var path = _configuration["Data:Path"];
@@ -88,7 +92,31 @@ public class FinancialDataService
     }
 
 
-    private async Task<List<MapPaymentForTime>> ReadDataMappingsFromFile()
+    private async Task<List<MapPaymentForCategory>> ReadDataMappingsByCategoryFromFile()
+    {
+        //file is TransactionTimeMappings.json
+        var path = _configuration["Data:SaveLocation"];
+        // check if file exists
+        // var file = Path.Combine(path, "TransactionTimeMappings.json");
+        var file = Path.Combine(path, "TransactionCategoryMappings.json");
+        if (!File.Exists(file))
+        {
+            // create file
+            var dataMappingsTemp = new List<MapPaymentForCategory>();
+            var jsonTemp = JsonConvert.SerializeObject(dataMappingsTemp);
+            await File.WriteAllTextAsync(file, jsonTemp);
+            return dataMappingsTemp;
+        }
+        else
+        {
+            var json = await File.ReadAllTextAsync(file);
+            var dataMappings = JsonConvert.DeserializeObject<List<MapPaymentForCategory>>(json);
+            return dataMappings;
+        }
+    }
+
+
+    private async Task<List<MapPaymentForTime>> ReadDataMappingsByTimeFromFile()
     {
         //file is TransactionTimeMappings.json
         var path = _configuration["Data:SaveLocation"];
@@ -140,8 +168,8 @@ public class FinancialDataService
     {
         var transactions = await GetTransactions();
         var transactionContainers = transactions.Select(x => new TransactionContainer(x,
-            DataMappings.SingleOrDefault<MapPaymentForTime>(y =>
-                y.Transaction.Equals(x)))).ToList();
+            DataMappingsByTime.SingleOrDefault<MapPaymentForTime>(y =>
+                y.Transaction.Equals(x)), DataMappingsByCategory )).ToList();
 
         return transactionContainers;
 
@@ -149,14 +177,14 @@ public class FinancialDataService
 
     public async void AddMapping(MapPaymentForTime resultData)
     {
-        DataMappings.Add(resultData);
+        DataMappingsByTime.Add(resultData);
         await SaveTransactionTimeMappingsFileAsync();
 
     }
 
     public async void RemoveMapping(MapPaymentForTime contextMapPaymentForTime)
     {
-        DataMappings.Remove(contextMapPaymentForTime);
+        DataMappingsByTime.Remove(contextMapPaymentForTime);
         await SaveTransactionTimeMappingsFileAsync();
 
     }
@@ -165,7 +193,14 @@ public class FinancialDataService
     {
         var path = _configuration["Data:SaveLocation"];
         var file = Path.Combine(path, "TransactionTimeMappings.json");
-        var json = JsonConvert.SerializeObject(DataMappings);
+        var json = JsonConvert.SerializeObject(DataMappingsByTime);
+        await File.WriteAllTextAsync(file, json);
+    }
+    private async Task SaveTransactionCategoryMappingsFileAsync()
+    {
+        var path = _configuration["Data:SaveLocation"];
+        var file = Path.Combine(path, "TransactionCategoryMappings.json");
+        var json = JsonConvert.SerializeObject(DataMappingsByTime);
         await File.WriteAllTextAsync(file, json);
     }
 }

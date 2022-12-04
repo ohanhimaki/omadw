@@ -42,3 +42,24 @@ public class MapPaymentForTime
         set => _amount = value;
     }
 }
+public class MapPaymentForCategory
+{
+    public Transaction? TransactionMapped { get; set; }
+    public string? ReceiverMapped { get; set; }
+
+    public string Category { get; set; }
+    public string SubCategory { get; set; }
+    public MapPaymentForCategory()
+    {
+
+    }
+
+    public MapPaymentForCategory(TransactionContainer transaction)
+    {
+        TransactionMapped = transaction.OriginalTransaction;
+    }
+    public MapPaymentForCategory(string receiver)
+    {
+        ReceiverMapped = receiver;
+    }
+}
