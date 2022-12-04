@@ -20,7 +20,7 @@ public class ReportingApiController
 
     // GET: api/ReportingApi
     [HttpGet("[action]")]
-    public async Task<List<Transaction>> GetFinancialData()
+    public async Task<List<Transaction>> GetOriginalTransactions()
     {
         var data = await _financialDataService.GetTransactionsForApi();
 
@@ -36,5 +36,14 @@ public class ReportingApiController
         //return data
 
         return data;
+    }
+    [HttpGet("[action]")]
+    public async Task<List<TransactionFlattened>> GetFinancialData()
+    {
+        var data = await _financialDataService.GetTransactionsWithMappingsFlattened();
+
+        //return data
+
+        return data.ToList();
     }
 }

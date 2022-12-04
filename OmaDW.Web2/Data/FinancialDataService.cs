@@ -148,6 +148,23 @@ public class FinancialDataService
 
         return Transactions;
     }
+    public async Task<IEnumerable<TransactionFlattened>> GetTransactionsWithMappingsFlattened()
+    {
+        //wait if not initialized
+        while (!_initialized)
+        {
+            await Task.Delay(100);
+        }
+
+        var containers = await GetTransactionContainers();
+        var results = new List<TransactionFlattened>();
+        foreach (var transactionContainer in containers)
+        {
+             results.AddRange(transactionContainer.Flatten());
+        }
+
+        return results;
+    }
 
     public async Task<List<Transaction>> GetTransactions()
     {
