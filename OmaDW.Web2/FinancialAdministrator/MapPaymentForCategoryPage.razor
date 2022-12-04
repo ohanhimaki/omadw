@@ -28,15 +28,22 @@
                         CoerceValue="true"
                         Variant="Variant.Outlined"></MudAutocomplete>
                 </MudItem>
-                <MudItem xs="2">
+                <MudItem xs="1">
                     <MudSwitch @bind-Checked="MapReceiver" Color="Color.Primary">Yhdistä saajalla</MudSwitch>
 
                 </MudItem>
-                <MudItem xs="2">
+                <MudItem xs="1">
                     <MudButton
                         Variant="Variant.Filled"
                         Color="Color.Success"
                         OnClick="(e) => AddCategory(e)">Tallenna</MudButton>
+
+                </MudItem>
+                <MudItem xs="1">
+                    <MudButton
+                        Variant="Variant.Filled"
+                        Color="Color.Warning"
+                        OnClick="(e) => RemoveCategory(e)">Poista valituilta</MudButton>
 
                 </MudItem>
             </MudGrid>
@@ -205,6 +212,13 @@
         Console.WriteLine("Rivejä lisätty: " + tmpList.Count);
 
         FinancialDataService.AddCategoryMapping(tmpList);
+        await InvokeAsync(StateHasChanged);
+
+    }
+    private async void RemoveCategory(MouseEventArgs args)
+    {
+
+        FinancialDataService.RemoveCategoryMapping(selectedItems1.Select(x => x.MapPaymentForCategory).ToList());
         await InvokeAsync(StateHasChanged);
 
     }
