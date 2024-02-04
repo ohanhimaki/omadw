@@ -1,0 +1,2073 @@
+{
+  "compatibilityLevel": 1550,
+  "model": {
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.124.2028.0 (23.12)"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"transactionstmp\",\"weighttmp\",\"dw customerGroup\",\"dw customerCustomerGroups\",\"dw customer\",\"dw DimTime\",\"RawTransactions\",\"GetAccountStatus\"]"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "DynamicImprovement": "HighConfidence",
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "relationships": [
+      {
+        "name": "2ccf1ef2-5e1c-4e35-a12b-6c0bf6c68a4a",
+        "fromColumn": "saajamaksaja",
+        "fromTable": "transactionstmp",
+        "toColumn": "Name",
+        "toTable": "dw customer"
+      },
+      {
+        "name": "186141cf-1307-4e20-acbf-d64488171937",
+        "crossFilteringBehavior": "bothDirections",
+        "fromColumn": "customerid",
+        "fromTable": "dw customerCustomerGroups",
+        "toColumn": "Id",
+        "toTable": "dw customer"
+      },
+      {
+        "name": "fe63504a-078b-497e-8e29-cec2635f0143",
+        "fromColumn": "customergroupdid",
+        "fromTable": "dw customerCustomerGroups",
+        "toColumn": "Id",
+        "toTable": "dw customerGroup"
+      },
+      {
+        "name": "90dc8a79-571a-4b1c-a23e-1d16f23f710f",
+        "fromColumn": "TheDate",
+        "fromTable": "dw DimTime",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_28f14c45-16b8-431a-83ee-d0b5c3ed5d8b"
+      },
+      {
+        "name": "4e8b5398-823d-4d1b-bc7c-2a2ea47ad5b3",
+        "fromColumn": "TheFirstOfMonth",
+        "fromTable": "dw DimTime",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_c43fe631-80c8-4f58-a837-bb858acf08fb"
+      },
+      {
+        "name": "acfacb17-c36d-4afc-a1a2-af832c04ef28",
+        "fromColumn": "TheLastOfYear",
+        "fromTable": "dw DimTime",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_65e42265-5df6-43a2-a87c-0fb9f68c85ec"
+      },
+      {
+        "name": "b8876d84-f011-43d2-8957-e0f342ac2cc9",
+        "fromColumn": "Date",
+        "fromTable": "weighttmp",
+        "toColumn": "TheDate",
+        "toTable": "dw DimTime"
+      },
+      {
+        "name": "28221e8d-68b1-42ce-8c27-b02f8484b708",
+        "fromColumn": "date",
+        "fromTable": "transactionstmp",
+        "toColumn": "TheDate",
+        "toTable": "dw DimTime"
+      },
+      {
+        "name": "d5e76610-73af-4dbc-a282-5da9dc1a5407",
+        "fromColumn": "date",
+        "fromTable": "RawTransactions",
+        "toColumn": "TheDate",
+        "toTable": "dw DimTime"
+      },
+      {
+        "name": "232404be-447a-4248-a908-d6cbbc69461f",
+        "crossFilteringBehavior": "bothDirections",
+        "fromCardinality": "one",
+        "fromColumn": "date",
+        "fromTable": "GetAccountStatus",
+        "toColumn": "TheDate",
+        "toTable": "dw DimTime"
+      }
+    ],
+    "sourceQueryCulture": "en-FI",
+    "tables": [
+      {
+        "name": "DateTableTemplate_20be6391-627d-4117-8748-940febe163c7",
+        "annotations": [
+          {
+            "name": "__PBI_TemplateDateTable",
+            "value": "true"
+          },
+          {
+            "name": "DefaultItem",
+            "value": "DateHierarchy"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "cd37da2d-ad68-46dd-b9a4-21480de5f6b6",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "9e0cf964-ab3a-4bbf-b0cc-fc12c84ba228",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "5ff2dabe-48f8-42fb-a2e1-4ce7cab61db0",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "429505c1-8463-44e5-9538-3819ae040cb0",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "0b814132-e946-4d10-b342-8249e77e9cb1",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "cb921683-7616-4580-8690-4703cca1687c",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "5f7a85fb-432b-480a-94ce-93b857a719a9",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "3f889005-5079-4732-9c34-3e96eb2f2bbc",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "d62f5365-4e10-4583-b2d8-b5439a817684",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "a3d4609c-2a24-4262-a818-c9db1cca12f0",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "bc5f9e81-7ea4-4eb3-8489-91236cb215d1",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "5f646421-bd28-4763-a27c-796657b2c2bd"
+          }
+        ],
+        "isHidden": true,
+        "isPrivate": true,
+        "lineageTag": "e3cb2e57-4d40-4735-bc26-9e13d02eebe5",
+        "partitions": [
+          {
+            "name": "DateTableTemplate_20be6391-627d-4117-8748-940febe163c7-9afeb1bb-1f22-472c-8eca-92043a587fc9",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(2015,1,1), Date(2015,1,1))",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "transactionstmp",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "f18417cf-d869-4fb5-b9cc-ea2b941a8509",
+            "sourceColumn": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "saajamaksaja",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a864f797-3cc9-4697-b9d9-1779b2f3dd0c",
+            "sourceColumn": "saajamaksaja",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "selite",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "57ef25ee-345e-414b-ae6a-0a64c2c4d944",
+            "sourceColumn": "selite",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "viesti",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4877dc41-5ae2-4027-a106-2d3ca88d935a",
+            "sourceColumn": "viesti",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "amount",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "53e2bae1-4e97-4dcb-bc67-bd6193eb6ddc",
+            "sourceColumn": "amount",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e02eed2d-4325-4626-b9c9-ec9b51752991",
+            "sourceColumn": "year",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "46f162f1-0195-4c90-97b2-e62283b82f86",
+            "sourceColumn": "month",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "date - Copy.1",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "182e002a-157b-4d96-9807-b1ad600ce189",
+            "sourceColumn": "date - Copy.1",
+            "summarizeBy": "sum"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "New Hierarchy 1",
+            "levels": [
+              {
+                "name": "year",
+                "column": "year",
+                "lineageTag": "d16d0546-1146-4549-9769-d2a760a2fbb8",
+                "ordinal": 0
+              },
+              {
+                "name": "month",
+                "column": "month",
+                "lineageTag": "d1a223c6-0427-4de2-96da-1673a6677d85",
+                "ordinal": 1
+              },
+              {
+                "name": "date - Copy.1",
+                "column": "date - Copy.1",
+                "lineageTag": "739b5127-91d4-45e7-89d8-82506a8b4379",
+                "ordinal": 2
+              }
+            ],
+            "lineageTag": "3ea13186-e788-4bd5-bcc6-199b617046ca"
+          }
+        ],
+        "lineageTag": "7b5fbc29-39fa-4526-b46e-43b54df1540b",
+        "partitions": [
+          {
+            "name": "transactionstmp-f1d3c24b-2b10-4da1-91b9-bbed47b4f7fd",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Databases(\"localhost\"),",
+                "    Prime = Source{[Name=\"Prime\"]}[Data],",
+                "    dbo_transactionstmp = Prime{[Schema=\"dbo\",Item=\"transactionstmp\"]}[Data],",
+                "    #\"Duplicated Column\" = Table.DuplicateColumn(dbo_transactionstmp, \"date\", \"date - Copy\"),",
+                "    #\"Duplicated Column1\" = Table.DuplicateColumn(#\"Duplicated Column\", \"date - Copy\", \"date - Copy - Copy\"),",
+                "    #\"Extracted Year\" = Table.TransformColumns(#\"Duplicated Column1\",{{\"date - Copy\", Date.Year, Int64.Type}}),",
+                "    #\"Extracted Month\" = Table.TransformColumns(#\"Extracted Year\",{{\"date - Copy - Copy\", Date.Month, Int64.Type}}),",
+                "    #\"Duplicated Column2\" = Table.DuplicateColumn(#\"Extracted Month\", \"date - Copy - Copy\", \"date - Copy - Copy - Copy\"),",
+                "    #\"Removed Columns\" = Table.RemoveColumns(#\"Duplicated Column2\",{\"date - Copy - Copy - Copy\"}),",
+                "    #\"Duplicated Column3\" = Table.DuplicateColumn(#\"Removed Columns\", \"date\", \"date - Copy.1\"),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Duplicated Column3\",{{\"date - Copy\", \"year\"}, {\"date - Copy - Copy\", \"month\"}}),",
+                "    #\"Extracted Day\" = Table.TransformColumns(#\"Renamed Columns\",{{\"date - Copy.1\", Date.Day, Int64.Type}}),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Extracted Day\",{{\"amount\", type number}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "weighttmp",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "f25144fa-01b8-4bc9-8c09-7aca8f81ceca",
+            "sourceColumn": "Date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Weight",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "26995f90-1a41-4eb3-8395-fc4b714760a7",
+            "sourceColumn": "Weight",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "BMI",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "204a4455-9f2b-4e5e-b2a6-6d5bc03a0de6",
+            "sourceColumn": "BMI",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "BodyFat",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "e4ed13ef-b8a9-4697-a8a1-c45c83399c32",
+            "sourceColumn": "BodyFat",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Water",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "1deb04b7-173d-4eed-81db-d3f60549f997",
+            "sourceColumn": "Water",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Muscle",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "debe3bd0-57e1-4188-979c-df2a2dfa411b",
+            "sourceColumn": "Muscle",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Bone",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "27af4659-4e88-4f95-bf69-a806e9f40778",
+            "sourceColumn": "Bone",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "BodyFatMass",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "ca1febbf-e1a0-4f6d-ad1d-bd120e1dd8a9",
+            "sourceColumn": "BodyFatMass",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "WaterMass",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "ff116120-8597-45df-ae4f-99346cebad65",
+            "sourceColumn": "WaterMass",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "MuscleMass",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "13afa9ce-2182-47bc-85bd-ca192442a5ff",
+            "sourceColumn": "MuscleMass",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "BoneMass",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "9aa0dce3-042e-4807-94f4-399eef1be98f",
+            "sourceColumn": "BoneMass",
+            "summarizeBy": "sum"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "New Hierarchy 1",
+            "levels": [
+              {
+                "name": "Date",
+                "column": "Date",
+                "lineageTag": "dabffb54-7d67-44c0-98cd-69d5fca5dbb3",
+                "ordinal": 0
+              }
+            ],
+            "lineageTag": "0e4293a8-78cf-4ea6-b3e3-b08fe68afc77"
+          }
+        ],
+        "lineageTag": "b3d60d82-b0da-4cc3-8b5a-c3de19d67e0e",
+        "partitions": [
+          {
+            "name": "weighttmp-bba0a392-7523-4d68-89c6-c8fab2b5bb4f",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Databases(\"localhost\"),",
+                "    Prime = Source{[Name=\"Prime\"]}[Data],",
+                "    dbo_weighttmp = Prime{[Schema=\"dbo\",Item=\"weighttmp\"]}[Data],",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(dbo_weighttmp,{{\"Date\", type datetime}}),",
+                "    #\"Duplicated Column\" = Table.DuplicateColumn(#\"Changed Type\", \"Date\", \"Date - Copy\"),",
+                "    #\"Removed Columns\" = Table.RemoveColumns(#\"Duplicated Column\",{\"Date - Copy\"}),",
+                "    #\"Added Custom\" = Table.AddColumn(#\"Removed Columns\", \"BodyFatMass\", each [Weight]*([BodyFat]/100)),",
+                "    #\"Added Custom1\" = Table.AddColumn(#\"Added Custom\", \"WaterMass\", each [Weight]*([Water]/100)),",
+                "    #\"Added Custom2\" = Table.AddColumn(#\"Added Custom1\", \"MuscleMass\", each [Weight]*([Muscle]/100)),",
+                "    #\"Added Custom3\" = Table.AddColumn(#\"Added Custom2\", \"BoneMass\", each [Weight]*([Bone]/100)),",
+                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Added Custom3\",{{\"BodyFatMass\", type number}, {\"WaterMass\", type number}, {\"MuscleMass\", type number}, {\"BoneMass\", type number}})",
+                "in",
+                "    #\"Changed Type1\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dw customerGroup",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "2f267b9c-68db-4c56-b553-627fefeb3d3b",
+            "sourceColumn": "Id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e840bd49-6473-4df6-affb-16c5fa8027de",
+            "sourceColumn": "Name",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "afec4c3d-a77b-4a29-814d-08cb7c5894af",
+        "partitions": [
+          {
+            "name": "dw customerGroup-48000027-8c4e-4df8-b639-6d661fc243b7",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Databases(\"localhost\"),",
+                "    Prime = Source{[Name=\"Prime\"]}[Data],",
+                "    dw_customerGroup = Prime{[Schema=\"dw\",Item=\"customerGroup\"]}[Data]",
+                "in",
+                "    dw_customerGroup"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dw customerCustomerGroups",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "d26290cd-8147-4602-8526-68a96e022012",
+            "sourceColumn": "Id",
+            "summarizeBy": "count"
+          },
+          {
+            "name": "customerid",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "b2298ace-8f8c-4e9c-8e76-3dfe0c272ee3",
+            "sourceColumn": "customerid",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customergroupdid",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "b2fb5e34-6450-4baa-a706-a6d9e2e29482",
+            "sourceColumn": "customergroupdid",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "pctOfSales",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "bfb82527-196a-4b30-aae9-f327d21f28b1",
+            "sourceColumn": "pctOfSales",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "d2230f24-aba8-4b8a-b921-a41be3d47fd4",
+        "partitions": [
+          {
+            "name": "dw customerCustomerGroups-7a3ba612-b49c-4162-b7b9-ac021064d0d2",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Databases(\"localhost\"),",
+                "    Prime = Source{[Name=\"Prime\"]}[Data],",
+                "    dw_customerCustomerGroups = Prime{[Schema=\"dw\",Item=\"customerCustomerGroups\"]}[Data]",
+                "in",
+                "    dw_customerCustomerGroups"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dw customer",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "99979dc8-ce54-4695-8cc3-d5ce0b8dca77",
+            "sourceColumn": "Id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "11985e34-8d20-47a7-8481-d1847100f3f7",
+            "sourceColumn": "Name",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "5a69e220-0275-410a-ad8a-4ba7031c8ba6",
+        "partitions": [
+          {
+            "name": "dw customer-5f50d36d-3a69-401a-b9be-f6a67d16d622",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Databases(\"localhost\"),",
+                "    Prime = Source{[Name=\"Prime\"]}[Data],",
+                "    dw_customer = Prime{[Schema=\"dw\",Item=\"customer\"]}[Data]",
+                "in",
+                "    dw_customer"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dw DimTime",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "TheDate",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "eb125108-9ef6-40ae-9c93-723ad9150991",
+            "sourceColumn": "TheDate",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Date Hierarchy",
+                  "table": "LocalDateTable_28f14c45-16b8-431a-83ee-d0b5c3ed5d8b"
+                },
+                "isDefault": true,
+                "relationship": "90dc8a79-571a-4b1c-a23e-1d16f23f710f"
+              }
+            ]
+          },
+          {
+            "name": "TheDay",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e3ad95c1-077f-407b-81ee-d7855db2a937",
+            "sourceColumn": "TheDay",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "TheDayName",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c92f5044-3f0c-46b2-ae75-d9b32e37ae8d",
+            "sourceColumn": "TheDayName",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TheWeek",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "b9924733-dfc5-47b7-afdb-92b89846b89c",
+            "sourceColumn": "TheWeek",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "TheISOWeek",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "84304d7b-8e5d-4148-ae40-88075bd0d999",
+            "sourceColumn": "TheISOWeek",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "TheDayOfWeek",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "74e38f5b-f505-4b02-aea4-b9e6200ccb43",
+            "sourceColumn": "TheDayOfWeek",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "TheMonth",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "00e3ef59-0155-40b8-b50f-0043d16b1700",
+            "sourceColumn": "TheMonth",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "TheMonthName",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6513d26e-c2a6-4433-b559-7420789c0d68",
+            "sortByColumn": "TheMonth",
+            "sourceColumn": "TheMonthName",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TheQuarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "51f7ab6b-3b3d-4d51-a070-41e11ed7e993",
+            "sourceColumn": "TheQuarter",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "TheYear",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "1cfc28ac-8fa9-4067-b9e8-a8357bf9f76c",
+            "sourceColumn": "TheYear",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "TheFirstOfMonth",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "04a5992c-b918-4cc9-85dd-92ff12d70b8b",
+            "sourceColumn": "TheFirstOfMonth",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Date Hierarchy",
+                  "table": "LocalDateTable_c43fe631-80c8-4f58-a837-bb858acf08fb"
+                },
+                "isDefault": true,
+                "relationship": "4e8b5398-823d-4d1b-bc7c-2a2ea47ad5b3"
+              }
+            ]
+          },
+          {
+            "name": "TheLastOfYear",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "8eeb3095-4a4d-465a-ac68-15d7029b973f",
+            "sourceColumn": "TheLastOfYear",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Date Hierarchy",
+                  "table": "LocalDateTable_65e42265-5df6-43a2-a87c-0fb9f68c85ec"
+                },
+                "isDefault": true,
+                "relationship": "acfacb17-c36d-4afc-a1a2-af832c04ef28"
+              }
+            ]
+          },
+          {
+            "name": "TheDayOfYear",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "69df318f-5154-48f4-a48d-0839a04caa36",
+            "sourceColumn": "TheDayOfYear",
+            "summarizeBy": "sum"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "TheYear Hierarchy",
+            "levels": [
+              {
+                "name": "TheYear",
+                "column": "TheYear",
+                "lineageTag": "f00d183c-4df4-4677-a5c6-a223f68b1daa",
+                "ordinal": 0
+              },
+              {
+                "name": "TheMonth",
+                "column": "TheMonth",
+                "lineageTag": "dcdb7d21-efbc-40bf-bf4e-1f5efd0b491f",
+                "ordinal": 1
+              },
+              {
+                "name": "TheMonthName",
+                "column": "TheMonthName",
+                "lineageTag": "5df16741-1f34-41c1-a6ec-1cf447e215d3",
+                "ordinal": 2
+              },
+              {
+                "name": "TheDay",
+                "column": "TheDay",
+                "lineageTag": "1a76fa48-b977-46d2-8758-ef3dae68f00c",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "907dfbe9-20c4-430c-9cb6-50c3a5841f3b"
+          }
+        ],
+        "lineageTag": "fc25d144-c315-4919-adc8-fb1be57a88a4",
+        "partitions": [
+          {
+            "name": "dw DimTime-8669d81a-6944-4ffb-a63d-24a4dc0e44f1",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Databases(\"localhost\"),",
+                "    Prime = Source{[Name=\"Prime\"]}[Data],",
+                "    dw_DimTime = Prime{[Schema=\"dw\",Item=\"DimTime\"]}[Data]",
+                "in",
+                "    dw_DimTime"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "LocalDateTable_28f14c45-16b8-431a-83ee-d0b5c3ed5d8b",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "f52eda79-de71-4d45-a9a4-527c5d6e9e4d",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "54c2c025-68ea-4647-aa59-b790b9c96c6e",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "e4cba902-9471-42c5-b0f7-213e1528d8cf",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "25534a81-b6b3-4665-b535-b913b39d6cb1",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "59500cdb-dbd1-4838-b58c-e5d698b54a11",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "2bf8cf0a-65b6-4269-9096-8ff5b5e85ece",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "0ed7bb72-7063-499e-8675-e24412cb7d98",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "2648b036-8275-4af1-a088-8cbb6c381b61",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "c4cd34c0-55fe-4ddd-934c-72cf1a1d7223",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "9bf739af-a823-4441-921e-a7ea019d464f",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "e670fd5e-97bf-4997-ad5a-2002e053b24a",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "e9389d34-d0a7-4678-be46-a3a813f2b037"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "95f09da3-e24f-4686-96d6-f70417347ae0",
+        "partitions": [
+          {
+            "name": "LocalDateTable_28f14c45-16b8-431a-83ee-d0b5c3ed5d8b-c180b18f-4175-4f3a-9f26-e6ff4f6ec678",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('dw DimTime'[TheDate])), 1, 1), Date(Year(MAX('dw DimTime'[TheDate])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
+      },
+      {
+        "name": "LocalDateTable_c43fe631-80c8-4f58-a837-bb858acf08fb",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "45eaca6e-3915-4440-9b1c-d079c31eb7e9",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "055db4de-456e-4912-bc23-74c5e628d6b9",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "cc6020e5-bf5b-4161-a307-8ea4189ad297",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "d8932aad-a44f-4732-bdea-f83421b26006",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "7a387ef3-c146-46f4-a439-61891bc6c5a5",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "5957778d-fab4-4a1b-97b2-b62d3a754efc",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "d7f75991-0473-4e8d-8fee-3c28217389b7",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "e14d5180-de3d-46a2-a9cf-4998ff4ab64d",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "f409c797-f130-485d-90f9-7f622ddecc77",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "ab39f5ed-c85d-440a-8fd5-a108f8df8d9f",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "2cc9bb2e-7104-4601-b7ca-d876a8c97ea6",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "ec4fde12-cedc-4946-9b38-72446bf5893e"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "d2c8d101-9a73-4040-9c1e-d2979af0a843",
+        "partitions": [
+          {
+            "name": "LocalDateTable_c43fe631-80c8-4f58-a837-bb858acf08fb-592e0bbb-dca1-44dc-b4a5-e47a07b74e22",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('dw DimTime'[TheFirstOfMonth])), 1, 1), Date(Year(MAX('dw DimTime'[TheFirstOfMonth])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
+      },
+      {
+        "name": "LocalDateTable_65e42265-5df6-43a2-a87c-0fb9f68c85ec",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "8a1d1849-e149-4bab-9ff3-15c26f993776",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "275068e2-5885-42a5-b47a-36c5fb72baff",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "ad9ef393-acee-45e7-9073-1a8af53ff24c",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "551e0d8c-6b63-42a2-b4eb-9987bd4c8352",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "4844cdc8-2972-44c1-ad7b-e8c38136c16a",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "93445c2b-adb0-4ea3-b723-e280cbf2a7f4",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "3fa65ec1-98bf-41d2-9979-af5dabc3196d",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "b898d2ff-4b5a-4cde-be47-0bdcfce0248c",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "d5f792a8-0df2-467a-b01f-1182c6a8fc30",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "eaf0a3db-3762-4c01-8418-38d112f86075",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "b72fb4dd-2355-4147-ab50-f713eede8801",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "c0cdd221-5609-46cb-a9af-55274e2e547d"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "72c4bb86-f62d-4284-8148-a656652dfcef",
+        "partitions": [
+          {
+            "name": "LocalDateTable_65e42265-5df6-43a2-a87c-0fb9f68c85ec-6141848e-da87-4250-908a-695986c5762b",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('dw DimTime'[TheLastOfYear])), 1, 1), Date(Year(MAX('dw DimTime'[TheLastOfYear])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
+      },
+      {
+        "name": "RawTransactions",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "31b4704f-d781-45d1-8737-9c8754058413",
+            "sourceColumn": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "receiver",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f2aa2110-918f-41bb-b927-3355de47be4d",
+            "sourceColumn": "receiver",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "description",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e723e3c5-a56e-4dad-a71c-23d2283c1aa5",
+            "sourceColumn": "description",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "message",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a0de8d49-891f-4586-9c6d-500ea195c0a4",
+            "sourceColumn": "message",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "amount",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "a9411b4a-4772-45dc-be70-5367c73a4631",
+            "sourceColumn": "amount",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "category",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "68fc3e23-e69d-4403-82da-196dcb37b1db",
+            "sourceColumn": "category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "subCategory",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e43a1cd1-6487-4402-b246-23ab5e30f0b4",
+            "sourceColumn": "subCategory",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "588f35c6-df81-4b9f-acef-88c0c689e4a4",
+        "measures": [
+          {
+            "name": "PositiveAmounts",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "CALCULATE(SUM(RawTransactions[amount]), RawTransactions[amount] > 0)",
+            "lineageTag": "908f179a-9bb7-46e5-8a01-98fe140562ed"
+          },
+          {
+            "name": "NegativeAmounts",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "CALCULATE(SUM(RawTransactions[amount]), RawTransactions[amount] < 0)",
+            "lineageTag": "2fae85f1-ee2d-43b2-b07a-130d8fc30efd"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "RawTransactions-74232c49-b9ff-43f7-8f74-3d314f1ba39f",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Json.Document(Web.Contents(\"https://localhost:7140/api/ReportingApi/GetFinancialData\")),",
+                "    #\"Converted to Table\" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),",
+                "    #\"Expanded Column1\" = Table.ExpandRecordColumn(#\"Converted to Table\", \"Column1\", {\"date\", \"receiver\", \"description\", \"message\", \"amount\", \"category\", \"subCategory\"}, {\"date\", \"receiver\", \"description\", \"message\", \"amount\", \"category\", \"subCategory\"}),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Expanded Column1\",{{\"date\", type date}, {\"receiver\", type text}, {\"description\", type text}, {\"message\", type text}, {\"amount\", type number}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "GetAccountStatus",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "cfab0d60-6e15-4b66-844e-9002f4cd81d1",
+            "sourceColumn": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "amount",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "20a38492-5b41-4fd1-adbc-edfa7630a7c7",
+            "sourceColumn": "amount",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "983694fd-ffd6-4311-8c84-d85e35a71d81",
+        "partitions": [
+          {
+            "name": "GetAccountStatus-dc80033a-df3c-456e-8608-fb96af590bd0",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Json.Document(Web.Contents(\"https://localhost:7140/api/ReportingApi/GetAccountStatus\")),",
+                "    #\"Converted to Table\" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),",
+                "    #\"Expanded Column1\" = Table.ExpandRecordColumn(#\"Converted to Table\", \"Column1\", {\"date\", \"amount\"}, {\"date\", \"amount\"}),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Expanded Column1\",{{\"date\", type datetimezone}, {\"amount\", type number}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

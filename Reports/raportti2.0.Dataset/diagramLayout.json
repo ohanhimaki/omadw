@@ -1,0 +1,118 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 341,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 421,
+            "y": 125.5
+          },
+          "nodeIndex": "transactionstmp",
+          "size": {
+            "height": 194,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 215
+          },
+          "nodeIndex": "weighttmp",
+          "size": {
+            "height": 464,
+            "width": 354
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 743.2,
+            "y": 0
+          },
+          "nodeIndex": "dw customer",
+          "size": {
+            "height": 173,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1047,
+            "y": 194.9
+          },
+          "nodeIndex": "dw customerCustomerGroups",
+          "size": {
+            "height": 221,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1350.7,
+            "y": 408.1
+          },
+          "nodeIndex": "dw customerGroup",
+          "size": {
+            "height": 173,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 666,
+            "y": 359.5
+          },
+          "nodeIndex": "dw DimTime",
+          "size": {
+            "height": 337,
+            "width": 354
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1059.9,
+            "y": 505
+          },
+          "nodeIndex": "RawTransactions",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1015.5,
+            "y": 0
+          },
+          "nodeIndex": "GetAccountStatus",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 7
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}
