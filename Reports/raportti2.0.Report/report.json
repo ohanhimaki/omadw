@@ -1,5 +1,5 @@
 {
-  "config": "{\"version\":\"5.37\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY19SU12\",\"version\":\"5.6\",\"type\":2}},\"activeSectionIndex\":13,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useStylableVisualContainerHeader\":true,\"exportDataMode\":1,\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"filterPaneHiddenInEditMode\":false,\"pauseQueries\":false},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}",
+  "config": "{\"version\":\"5.37\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY19SU12\",\"version\":\"5.6\",\"type\":2}},\"activeSectionIndex\":7,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useStylableVisualContainerHeader\":true,\"exportDataMode\":1,\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"filterPaneHiddenInEditMode\":false,\"pauseQueries\":false},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}",
   "layoutOptimization": 0,
   "pods": [
     {
@@ -98,7 +98,7 @@
       "filters": "[]",
       "height": 720.00,
       "name": "ReportSection100b31ffa751b855342e",
-      "ordinal": 13,
+      "ordinal": 11,
       "visualContainers": [
         {
           "config": "{\"name\":\"34a6f498d2400f41ba8b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1130.212765957447,\"y\":35.98784194528876,\"z\":1000,\"width\":149.7872340425532,\"height\":132.27963525835867,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"GetAccountStatus.date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"GetAccountStatus\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"date\"},\"Name\":\"GetAccountStatus.date\",\"NativeReferenceName\":\"date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"date\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"startDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2022-10-14T01:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"GetAccountStatus\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":2,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"date\"}},\"Right\":{\"Literal\":{\"Value\":\"datetime'2022-10-14T00:00:00'\"}}}}}]}}}}]}}}",
@@ -166,7 +166,7 @@
       "filters": "[{\"name\":\"Filter98c6bdf577b0876bd037\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"dw DimTime\"}},\"Property\":\"TheDay\"}},\"type\":\"Advanced\",\"howCreated\":1}]",
       "height": 720.00,
       "name": "ReportSection1a65b430401101db0413",
-      "ordinal": 12,
+      "ordinal": 10,
       "visualContainers": [
         {
           "config": "{\"name\":\"3b152ea58a980c71e492\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":347.2340425531915,\"z\":1000,\"width\":640,\"height\":372.5227963525836}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Group\":[{\"queryRef\":\"RawTransactions.category\",\"active\":true},{\"queryRef\":\"RawTransactions.receiver\"}],\"Values\":[{\"queryRef\":\"Sum(RawTransactions.amount)\"}],\"Details\":[{\"queryRef\":\"RawTransactions.subCategory\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"category\"},\"Name\":\"RawTransactions.category\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(RawTransactions.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"subCategory\"},\"Name\":\"RawTransactions.subCategory\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"receiver\"},\"Name\":\"RawTransactions.receiver\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
@@ -200,33 +200,12 @@
     },
     {
       "config": "{}",
-      "displayName": "Page 1",
-      "displayOption": 1,
-      "filters": "[]",
-      "height": 720.00,
-      "name": "ReportSection37f7fc50b7750e3d8a39",
-      "ordinal": 7,
-      "visualContainers": [
-        {
-          "config": "{\"name\":\"b9882de0b55c9edb599a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.719058466211086,\"y\":0,\"z\":0,\"width\":1270.280941533789,\"height\":720.1822323462416}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"weighttmp.Date.Variation.Date Hierarchy.Year\",\"active\":true},{\"queryRef\":\"weighttmp.New Hierarchy 1.Date\"}],\"Y\":[{\"queryRef\":\"Sum(weighttmp.BMI)\"},{\"queryRef\":\"Sum(weighttmp.BodyFat)\"},{\"queryRef\":\"Sum(weighttmp.BodyFatMass)\"},{\"queryRef\":\"Sum(weighttmp.Bone)\"},{\"queryRef\":\"Sum(weighttmp.BoneMass)\"},{\"queryRef\":\"Sum(weighttmp.Muscle)\"},{\"queryRef\":\"Sum(weighttmp.MuscleMass)\"},{\"queryRef\":\"Sum(weighttmp.Water)\"},{\"queryRef\":\"Sum(weighttmp.WaterMass)\"},{\"queryRef\":\"Sum(weighttmp.Weight)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"w\",\"Entity\":\"weighttmp\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"Date\"},\"Name\":\"weighttmp.Date.Variation.Date Hierarchy.Year\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"BMI\"}},\"Function\":0},\"Name\":\"Sum(weighttmp.BMI)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"BodyFat\"}},\"Function\":0},\"Name\":\"Sum(weighttmp.BodyFat)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"BodyFatMass\"}},\"Function\":0},\"Name\":\"Sum(weighttmp.BodyFatMass)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"Bone\"}},\"Function\":0},\"Name\":\"Sum(weighttmp.Bone)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"BoneMass\"}},\"Function\":0},\"Name\":\"Sum(weighttmp.BoneMass)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"Muscle\"}},\"Function\":0},\"Name\":\"Sum(weighttmp.Muscle)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"MuscleMass\"}},\"Function\":0},\"Name\":\"Sum(weighttmp.MuscleMass)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"Water\"}},\"Function\":0},\"Name\":\"Sum(weighttmp.Water)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"WaterMass\"}},\"Function\":0},\"Name\":\"Sum(weighttmp.WaterMass)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"Weight\"}},\"Function\":0},\"Name\":\"Sum(weighttmp.Weight)\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Hierarchy\":\"New Hierarchy 1\"}},\"Level\":\"Date\"},\"Name\":\"weighttmp.New Hierarchy 1.Date\"}]},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3}}",
-          "filters": "[{\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Property\":\"BMI\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":0},{\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Property\":\"BodyFat\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":1},{\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Property\":\"BodyFatMass\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":2},{\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Property\":\"Bone\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":3},{\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Property\":\"BoneMass\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":4},{\"expression\":{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Hierarchy\":\"New Hierarchy 1\"}},\"Level\":\"Date\"}},\"type\":\"Categorical\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":5},{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Property\":\"Date\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":6},{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Property\":\"Date\"}},\"type\":\"Categorical\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":7},{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Property\":\"Date\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":8},{\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Property\":\"Muscle\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":9},{\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Property\":\"MuscleMass\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":10},{\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Property\":\"Water\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":11},{\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Property\":\"WaterMass\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":12},{\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Property\":\"Weight\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":13},{\"name\":null,\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Property\":\"Date\"}},\"type\":\"Categorical\",\"howCreated\":2,\"objects\":{},\"ordinal\":14}]",
-          "height": 720.18,
-          "width": 1270.28,
-          "x": 9.72,
-          "y": 0.00,
-          "z": 0.00
-        }
-      ],
-      "width": 1280.00
-    },
-    {
-      "config": "{}",
       "displayName": "Menot2.0",
       "displayOption": 1,
       "filters": "[{\"name\":\"Filterc7efa8bfe52c3a400da9\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"RawTransactions\"}},\"Property\":\"amount\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":3,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Right\":{\"Literal\":{\"Value\":\"0L\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":1}]",
       "height": 720.00,
       "name": "ReportSection654e10d4cca080e8c627",
-      "ordinal": 11,
+      "ordinal": 9,
       "visualContainers": [
         {
           "config": "{\"name\":\"7fdf77ef3100890a4000\",\"layouts\":[{\"id\":0,\"position\":{\"x\":656,\"y\":0,\"width\":624,\"height\":413,\"z\":2000}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(RawTransactions.amount)\"}],\"Group\":[{\"queryRef\":\"RawTransactions.category\",\"active\":true},{\"queryRef\":\"RawTransactions.subCategory\",\"active\":true},{\"queryRef\":\"RawTransactions.receiver\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(RawTransactions.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"receiver\"},\"Name\":\"RawTransactions.receiver\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"category\"},\"Name\":\"RawTransactions.category\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"subCategory\"},\"Name\":\"RawTransactions.subCategory\"}]},\"drillFilterOtherVisuals\":true}}",
@@ -319,36 +298,6 @@
       "width": 1280.00
     },
     {
-      "config": "{}",
-      "displayName": "Page 2",
-      "displayOption": 1,
-      "filters": "[]",
-      "height": 720.00,
-      "name": "ReportSectionb6675acdc2cdc99feafe",
-      "ordinal": 8,
-      "visualContainers": [
-        {
-          "config": "{\"name\":\"1eb862cf26a4ea7d3a7d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.74124809741248,\"y\":0,\"z\":0,\"width\":226.9710806697108,\"height\":297.10806697108063}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"dw customer.Name\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dw customer\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Name\"},\"Name\":\"dw customer.Name\"}]},\"drillFilterOtherVisuals\":true}}",
-          "filters": "[]",
-          "height": 297.11,
-          "width": 226.97,
-          "x": 9.74,
-          "y": 0.00,
-          "z": 0.00
-        },
-        {
-          "config": "{\"name\":\"e3283592c240d03993ef\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10,\"y\":307,\"width\":227,\"height\":297,\"z\":1000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"dw customerGroup.Name\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dw customerGroup\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Name\"},\"Name\":\"dw customerGroup.Name\"}]},\"drillFilterOtherVisuals\":true}}",
-          "filters": "[]",
-          "height": 297.00,
-          "width": 227.00,
-          "x": 10.00,
-          "y": 307.00,
-          "z": 1000.00
-        }
-      ],
-      "width": 1280.00
-    },
-    {
       "config": "{\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"180L\"}}}}}]}}",
       "displayName": "Paino",
       "displayOption": 1,
@@ -415,7 +364,7 @@
       "filters": "[{\"name\":\"Filterc7efa8bfe52c3a400da9\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"RawTransactions\"}},\"Property\":\"amount\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":1,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Right\":{\"Literal\":{\"Value\":\"0L\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":1}]",
       "height": 720.00,
       "name": "ReportSectiondb0059b60a0cbe4a1940",
-      "ordinal": 10,
+      "ordinal": 8,
       "visualContainers": [
         {
           "config": "{\"name\":\"41c5f9f330c700032673\",\"layouts\":[{\"id\":0,\"position\":{\"x\":656,\"y\":0,\"width\":624,\"height\":413,\"z\":2000}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(RawTransactions.amount)\"}],\"Group\":[{\"queryRef\":\"RawTransactions.receiver\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(RawTransactions.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"receiver\"},\"Name\":\"RawTransactions.receiver\"}]},\"drillFilterOtherVisuals\":true}}",
@@ -493,7 +442,7 @@
       "filters": "[{\"name\":\"Filter\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"transactionstmp\"}},\"Property\":\"amount\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":3,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Right\":{\"Literal\":{\"Value\":\"0D\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":1},{\"name\":\"Filterd22768ca3d16815c4cc2\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"dw customerGroup\"}},\"Property\":\"Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dw customerGroup\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Pizza'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
       "height": 720.00,
       "name": "ReportSectioneef9f20faff661b6a091",
-      "ordinal": 9,
+      "ordinal": 7,
       "visualContainers": [
         {
           "config": "{\"name\":\"916f5a7e0e37cb039194\",\"layouts\":[{\"id\":0,\"position\":{\"x\":656,\"y\":0,\"width\":624,\"height\":413,\"z\":2000,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(transactionstmp.amount)\"}],\"Group\":[{\"queryRef\":\"transactionstmp.saajamaksaja\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(transactionstmp.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"saajamaksaja\"},\"Name\":\"transactionstmp.saajamaksaja\"}]},\"drillFilterOtherVisuals\":true}}",
