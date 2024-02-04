@@ -1,0 +1,469 @@
+{
+  "config": "{\"version\":\"5.37\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY19SU12\",\"version\":\"5.6\",\"type\":2}},\"activeSectionIndex\":7,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useStylableVisualContainerHeader\":true,\"exportDataMode\":1,\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"filterPaneHiddenInEditMode\":false,\"pauseQueries\":false},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "pods": [
+    {
+      "boundSection": "ReportSectiond221880a5fda4986032e",
+      "config": "{}",
+      "name": "Pod"
+    },
+    {
+      "boundSection": "ReportSectionb854886679084fff791f",
+      "config": "{}",
+      "name": "Pod1"
+    },
+    {
+      "boundSection": "ReportSection654e10d4cca080e8c627",
+      "config": "{}",
+      "name": "Pod10"
+    },
+    {
+      "boundSection": "ReportSection05b986a90dc7d62a15fa",
+      "config": "{}",
+      "name": "Pod2"
+    },
+    {
+      "boundSection": "ReportSection83907ee68143b03b844b",
+      "config": "{}",
+      "name": "Pod3"
+    },
+    {
+      "boundSection": "ReportSection1851543470c83ab4a071",
+      "config": "{}",
+      "name": "Pod4"
+    },
+    {
+      "boundSection": "ReportSectioneb4d78068614670083c0",
+      "config": "{}",
+      "name": "Pod5"
+    },
+    {
+      "boundSection": "ReportSectionaf1dffee4cbffbcd55fc",
+      "config": "{}",
+      "name": "Pod6"
+    },
+    {
+      "boundSection": "ReportSectioneef9f20faff661b6a091",
+      "config": "{}",
+      "name": "Pod7"
+    },
+    {
+      "boundSection": "ReportSectiondb0059b60a0cbe4a1940",
+      "config": "{}",
+      "name": "Pod8"
+    }
+  ],
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY19SU12",
+            "path": "BaseThemes/CY19SU12.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Painojakauma",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Property\":\"Date\"}},\"type\":\"Categorical\",\"cachedDisplayNames\":[{\"id\":{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"LocalDateTable_a212ea86-5df5-4f70-847b-d0c4d2389180\"}},\"Property\":\"Month\"}},\"Right\":{\"Literal\":{\"Value\":\"'March'\"}}}}},\"displayName\":\"March\"},{\"id\":{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"LocalDateTable_a212ea86-5df5-4f70-847b-d0c4d2389180\"}},\"Property\":\"Month\"}},\"Right\":{\"Literal\":{\"Value\":\"'April'\"}}}}},\"displayName\":\"April\"},{\"id\":{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"LocalDateTable_a212ea86-5df5-4f70-847b-d0c4d2389180\"}},\"Property\":\"Month\"}},\"Right\":{\"Literal\":{\"Value\":\"'May'\"}}}}},\"displayName\":\"May\"}],\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "ReportSection05b986a90dc7d62a15fa",
+      "ordinal": 5,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"4a35cf090f5d5bf62ec6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.719058466211086,\"y\":0,\"z\":0,\"width\":1270.280941533789,\"height\":720.1822323462416}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Year\",\"active\":true},{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Month\",\"active\":true},{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Day\"}],\"Y\":[{\"queryRef\":\"Avg(weighttmp.WaterMass)\"},{\"queryRef\":\"Avg(weighttmp.MuscleMass)\"},{\"queryRef\":\"Avg(weighttmp.BoneMass)\"},{\"queryRef\":\"Avg(weighttmp.BodyFatMass)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"w\",\"Entity\":\"weighttmp\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dw DimTime\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"WaterMass\"}},\"Function\":1},\"Name\":\"Avg(weighttmp.WaterMass)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"MuscleMass\"}},\"Function\":1},\"Name\":\"Avg(weighttmp.MuscleMass)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"BoneMass\"}},\"Function\":1},\"Name\":\"Avg(weighttmp.BoneMass)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"BodyFatMass\"}},\"Function\":1},\"Name\":\"Avg(weighttmp.BodyFatMass)\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Year\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Year\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Month\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Month\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Day\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Day\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"valueAxis\":[{\"properties\":{\"logAxisScale\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 720.18,
+          "width": 1270.28,
+          "x": 9.72,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Page 3",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection100b31ffa751b855342e",
+      "ordinal": 11,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"34a6f498d2400f41ba8b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1130.212765957447,\"y\":35.98784194528876,\"z\":1000,\"width\":149.7872340425532,\"height\":132.27963525835867,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"GetAccountStatus.date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"GetAccountStatus\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"date\"},\"Name\":\"GetAccountStatus.date\",\"NativeReferenceName\":\"date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"date\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"startDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2022-10-14T01:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"GetAccountStatus\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":2,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"date\"}},\"Right\":{\"Literal\":{\"Value\":\"datetime'2022-10-14T00:00:00'\"}}}}}]}}}}]}}}",
+          "filters": "[]",
+          "height": 132.28,
+          "width": 149.79,
+          "x": 1130.21,
+          "y": 35.99,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"6e2e695742e1a38f710f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":35.98784194528876,\"z\":0,\"width\":1130.212765957447,\"height\":673.0699088145897,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(GetAccountStatus.amount)\"}],\"Category\":[{\"queryRef\":\"GetAccountStatus.date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"GetAccountStatus\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(GetAccountStatus.amount)\",\"NativeReferenceName\":\"amount\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"date\"},\"Name\":\"GetAccountStatus.date\",\"NativeReferenceName\":\"date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"date\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 673.07,
+          "width": 1130.21,
+          "x": 0.00,
+          "y": 35.99,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Tulot",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"transactionstmp\"}},\"Property\":\"amount\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":1,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Right\":{\"Literal\":{\"Value\":\"0D\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":1}]",
+      "height": 720.00,
+      "name": "ReportSection1851543470c83ab4a071",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"916f5a7e0e37cb039194\",\"layouts\":[{\"id\":0,\"position\":{\"x\":656,\"y\":0,\"width\":624,\"height\":413,\"z\":2000}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(transactionstmp.amount)\"}],\"Group\":[{\"queryRef\":\"transactionstmp.saajamaksaja\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(transactionstmp.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"saajamaksaja\"},\"Name\":\"transactionstmp.saajamaksaja\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 413.00,
+          "width": 624.00,
+          "x": 656.00,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"c215e18592209ed5274a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":433.79939209726444,\"z\":0,\"width\":1280,\"height\":285.95744680851067}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(transactionstmp.amount)\"}],\"Category\":[{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Year\",\"active\":true},{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Month\",\"active\":true},{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Day\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dw DimTime\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(transactionstmp.amount)\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Year\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Year\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Month\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Month\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Day\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Day\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 285.96,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 433.80,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"e4eff5330ea507a4b006\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1000,\"width\":655.5623100303951,\"height\":413.37386018237083}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(transactionstmp.amount)\"},{\"queryRef\":\"transactionstmp.saajamaksaja\"},{\"queryRef\":\"transactionstmp.selite\"},{\"queryRef\":\"transactionstmp.viesti\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(transactionstmp.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"saajamaksaja\"},\"Name\":\"transactionstmp.saajamaksaja\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"selite\"},\"Name\":\"transactionstmp.selite\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"viesti\"},\"Name\":\"transactionstmp.viesti\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"228.58973660662184D\"}}}},\"selector\":{\"metadata\":\"transactionstmp.viesti\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"132.27689374781153D\"}}}},\"selector\":{\"metadata\":\"transactionstmp.selite\"}}]}}}",
+          "filters": "[]",
+          "height": 413.37,
+          "width": 655.56,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"relationships\":[{\"source\":\"9b49edc7772165306da3\",\"target\":\"b8189eb945ae34828357\",\"type\":2},{\"source\":\"b8189eb945ae34828357\",\"target\":\"9b49edc7772165306da3\",\"type\":1},{\"source\":\"b8189eb945ae34828357\",\"target\":\"3b152ea58a980c71e492\",\"type\":1},{\"source\":\"3b152ea58a980c71e492\",\"target\":\"9b49edc7772165306da3\",\"type\":3},{\"source\":\"9b49edc7772165306da3\",\"target\":\"3b152ea58a980c71e492\",\"type\":3},{\"source\":\"3b152ea58a980c71e492\",\"target\":\"b8189eb945ae34828357\",\"type\":2}]}",
+      "displayName": "Page 4",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter98c6bdf577b0876bd037\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"dw DimTime\"}},\"Property\":\"TheDay\"}},\"type\":\"Advanced\",\"howCreated\":1}]",
+      "height": 720.00,
+      "name": "ReportSection1a65b430401101db0413",
+      "ordinal": 10,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"3b152ea58a980c71e492\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":347.2340425531915,\"z\":1000,\"width\":640,\"height\":372.5227963525836}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Group\":[{\"queryRef\":\"RawTransactions.category\",\"active\":true},{\"queryRef\":\"RawTransactions.receiver\"}],\"Values\":[{\"queryRef\":\"Sum(RawTransactions.amount)\"}],\"Details\":[{\"queryRef\":\"RawTransactions.subCategory\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"category\"},\"Name\":\"RawTransactions.category\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(RawTransactions.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"subCategory\"},\"Name\":\"RawTransactions.subCategory\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"receiver\"},\"Name\":\"RawTransactions.receiver\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[{\"name\":\"Filter9173a4600de6db43a41e\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"RawTransactions\"}},\"Property\":\"amount\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":3,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Right\":{\"Literal\":{\"Value\":\"0L\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":1}]",
+          "height": 372.52,
+          "width": 640.00,
+          "x": 0.00,
+          "y": 347.23,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"9b49edc7772165306da3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640,\"y\":347.2340425531915,\"z\":2000,\"width\":640,\"height\":372.5227963525836}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Group\":[{\"queryRef\":\"RawTransactions.category\"},{\"queryRef\":\"RawTransactions.receiver\",\"active\":true}],\"Values\":[{\"queryRef\":\"Sum(RawTransactions.amount)\"}],\"Details\":[{\"queryRef\":\"RawTransactions.subCategory\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"category\"},\"Name\":\"RawTransactions.category\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(RawTransactions.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"subCategory\"},\"Name\":\"RawTransactions.subCategory\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"receiver\"},\"Name\":\"RawTransactions.receiver\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"legend\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}},\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]}}}",
+          "filters": "[{\"name\":\"Filterb75455ec783d069288dd\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"RawTransactions\"}},\"Property\":\"amount\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":1,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Right\":{\"Literal\":{\"Value\":\"0L\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":1}]",
+          "height": 372.52,
+          "width": 640.00,
+          "x": 640.00,
+          "y": 347.23,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"b8189eb945ae34828357\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1280,\"height\":336.53495440729483}}],\"singleVisual\":{\"visualType\":\"lineClusteredColumnComboChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Year\",\"active\":true},{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Month\"},{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Day\"}],\"Y\":[{\"queryRef\":\"Min(GetAccountStatus.amount)\"}],\"Y2\":[{\"queryRef\":\"RawTransactions.NegativeAmounts\"},{\"queryRef\":\"RawTransactions.PositiveAmounts\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dw DimTime\",\"Type\":0},{\"Name\":\"g\",\"Entity\":\"GetAccountStatus\",\"Type\":0},{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Select\":[{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Year\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Year\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Month\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Month\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Day\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Day\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"amount\"}},\"Function\":3},\"Name\":\"Min(GetAccountStatus.amount)\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"NegativeAmounts\"},\"Name\":\"RawTransactions.NegativeAmounts\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"PositiveAmounts\"},\"Name\":\"RawTransactions.PositiveAmounts\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"valueAxis\":[{\"properties\":{\"secShow\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 336.53,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Menot2.0",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filterc7efa8bfe52c3a400da9\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"RawTransactions\"}},\"Property\":\"amount\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":3,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Right\":{\"Literal\":{\"Value\":\"0L\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":1}]",
+      "height": 720.00,
+      "name": "ReportSection654e10d4cca080e8c627",
+      "ordinal": 9,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"7fdf77ef3100890a4000\",\"layouts\":[{\"id\":0,\"position\":{\"x\":656,\"y\":0,\"width\":624,\"height\":413,\"z\":2000}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(RawTransactions.amount)\"}],\"Group\":[{\"queryRef\":\"RawTransactions.category\",\"active\":true},{\"queryRef\":\"RawTransactions.subCategory\",\"active\":true},{\"queryRef\":\"RawTransactions.receiver\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(RawTransactions.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"receiver\"},\"Name\":\"RawTransactions.receiver\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"category\"},\"Name\":\"RawTransactions.category\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"subCategory\"},\"Name\":\"RawTransactions.subCategory\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[{\"name\":null,\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"RawTransactions\"}},\"Property\":\"category\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"category\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"null\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":2},{\"name\":null,\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"RawTransactions\"}},\"Property\":\"subCategory\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"subCategory\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"null\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":2}]",
+          "height": 413.00,
+          "width": 624.00,
+          "x": 656.00,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"97752d712cd7d3e7d178\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":433.79939209726444,\"z\":0,\"width\":1280,\"height\":285.95744680851067}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(RawTransactions.amount)\"}],\"Category\":[{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Year\",\"active\":true},{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Month\",\"active\":true},{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Day\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dw DimTime\",\"Type\":0},{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Select\":[{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Year\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Year\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Month\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Month\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Day\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Day\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(RawTransactions.amount)\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 285.96,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 433.80,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"b92d02fa573080974017\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1000,\"width\":655.5623100303951,\"height\":413.37386018237083}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(RawTransactions.amount)\"},{\"queryRef\":\"RawTransactions.receiver\"},{\"queryRef\":\"RawTransactions.message\"},{\"queryRef\":\"RawTransactions.description\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(RawTransactions.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"receiver\"},\"Name\":\"RawTransactions.receiver\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"message\"},\"Name\":\"RawTransactions.message\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"description\"},\"Name\":\"RawTransactions.description\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 413.37,
+          "width": 655.56,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Muscle",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection83907ee68143b03b844b",
+      "ordinal": 6,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"2ed4afebbee8415b043d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.74169741697417,\"y\":0,\"z\":0,\"width\":1269.9630996309963,\"height\":720}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"weighttmp.Date.Variation.Date Hierarchy.Year\",\"active\":true}],\"Y\":[{\"queryRef\":\"Avg(weighttmp.Weight)\"}],\"Y2\":[{\"queryRef\":\"Avg(weighttmp.MuscleMass)\"},{\"queryRef\":\"Avg(weighttmp.Muscle)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"w\",\"Entity\":\"weighttmp\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"Date\"},\"Name\":\"weighttmp.Date.Variation.Date Hierarchy.Year\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"MuscleMass\"}},\"Function\":1},\"Name\":\"Avg(weighttmp.MuscleMass)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"Weight\"}},\"Function\":1},\"Name\":\"Avg(weighttmp.Weight)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"Muscle\"}},\"Function\":1},\"Name\":\"Avg(weighttmp.Muscle)\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"y2Axis\":[{\"properties\":{\"secShowAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"secStart\":{\"expr\":{\"Literal\":{\"Value\":\"32.4D\"}}},\"secEnd\":{\"expr\":{\"Literal\":{\"Value\":\"34.7D\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"secTitleFontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Arial Black'''\"}}},\"secLabelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}],\"lineStyles\":[{\"properties\":{\"stepped\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showSeries\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"strokeWidth\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}}},\"selector\":{\"metadata\":\"Avg(weighttmp.Muscle)\"}}],\"valueAxis\":[{\"properties\":{\"titleText\":{\"expr\":{\"Literal\":{\"Value\":\"'aasdffs'\"}}},\"titleFontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Arial Black'''\"}}},\"gridlineShow\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"gridlineStyle\":{\"expr\":{\"Literal\":{\"Value\":\"'dashed'\"}}},\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"switchAxisPosition\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"plotArea\":[{\"properties\":{\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]},\"vcObjects\":{\"lockAspect\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 720.00,
+          "width": 1269.96,
+          "x": 9.74,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Menot 14-50",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"transactionstmp\"}},\"Property\":\"amount\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0}],\"Where\":[{\"Condition\":{\"And\":{\"Left\":{\"Comparison\":{\"ComparisonKind\":4,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Right\":{\"Literal\":{\"Value\":\"-14D\"}}}},\"Right\":{\"Comparison\":{\"ComparisonKind\":1,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Right\":{\"Literal\":{\"Value\":\"-50D\"}}}}}}}]},\"type\":\"Advanced\",\"howCreated\":1},{\"name\":\"Filter1\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"transactionstmp\"}},\"Property\":\"date\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":1,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"date\"}},\"Right\":{\"DateSpan\":{\"Expression\":{\"Literal\":{\"Value\":\"datetime'2019-04-01T17:00:00'\"}},\"TimeUnit\":5}}}}}]},\"type\":\"Advanced\",\"howCreated\":1}]",
+      "height": 720.00,
+      "name": "ReportSectionaf1dffee4cbffbcd55fc",
+      "ordinal": 3,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"916f5a7e0e37cb039194\",\"layouts\":[{\"id\":0,\"position\":{\"x\":656,\"y\":0,\"width\":624,\"height\":413,\"z\":2000}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(transactionstmp.amount)\"}],\"Group\":[{\"queryRef\":\"transactionstmp.saajamaksaja\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(transactionstmp.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"saajamaksaja\"},\"Name\":\"transactionstmp.saajamaksaja\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 413.00,
+          "width": 624.00,
+          "x": 656.00,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"c215e18592209ed5274a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":433.79939209726444,\"z\":0,\"width\":1280,\"height\":285.95744680851067}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(transactionstmp.amount)\"}],\"Category\":[{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Year\",\"active\":true},{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Month\"},{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Day\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dw DimTime\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(transactionstmp.amount)\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Year\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Year\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Month\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Month\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Day\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Day\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 285.96,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 433.80,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"e4eff5330ea507a4b006\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1000,\"width\":655.5623100303951,\"height\":413.37386018237083}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(transactionstmp.amount)\"},{\"queryRef\":\"transactionstmp.saajamaksaja\"},{\"queryRef\":\"transactionstmp.selite\"},{\"queryRef\":\"transactionstmp.viesti\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(transactionstmp.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"saajamaksaja\"},\"Name\":\"transactionstmp.saajamaksaja\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"selite\"},\"Name\":\"transactionstmp.selite\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"viesti\"},\"Name\":\"transactionstmp.viesti\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"228.58973660662184D\"}}}},\"selector\":{\"metadata\":\"transactionstmp.viesti\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"132.27689374781153D\"}}}},\"selector\":{\"metadata\":\"transactionstmp.selite\"}}]}}}",
+          "filters": "[]",
+          "height": 413.37,
+          "width": 655.56,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"180L\"}}}}}]}}",
+      "displayName": "Paino",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSectionb854886679084fff791f",
+      "ordinal": 4,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"891b2a1368054ab38e7a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":18.59778597785978,\"z\":0,\"width\":1279.7047970479705,\"height\":701.4022140221402}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Avg(weighttmp.Weight)\"}],\"Category\":[{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Year\",\"active\":true},{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Month\",\"active\":true},{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Day\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"w\",\"Entity\":\"weighttmp\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dw DimTime\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"Weight\"}},\"Function\":1},\"Name\":\"Avg(weighttmp.Weight)\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Year\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Year\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Month\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Month\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Day\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Day\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"valueAxis\":[{\"properties\":{\"start\":{\"expr\":{\"Literal\":{\"Value\":\"75D\"}}},\"end\":{\"expr\":{\"Literal\":{\"Value\":\"95D\"}}},\"logAxisScale\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"visualTooltip\":[{\"properties\":{\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Default'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 701.40,
+          "width": 1279.70,
+          "x": 0.00,
+          "y": 18.60,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Menot 0-14",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"transactionstmp\"}},\"Property\":\"amount\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0}],\"Where\":[{\"Condition\":{\"And\":{\"Left\":{\"Comparison\":{\"ComparisonKind\":3,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Right\":{\"Literal\":{\"Value\":\"0D\"}}}},\"Right\":{\"Comparison\":{\"ComparisonKind\":1,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Right\":{\"Literal\":{\"Value\":\"-14D\"}}}}}}}]},\"type\":\"Advanced\",\"howCreated\":1},{\"name\":\"Filter1\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"transactionstmp\"}},\"Property\":\"date\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":1,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"date\"}},\"Right\":{\"DateSpan\":{\"Expression\":{\"Literal\":{\"Value\":\"datetime'2019-04-01T17:00:00'\"}},\"TimeUnit\":5}}}}}]},\"type\":\"Advanced\",\"howCreated\":1}]",
+      "height": 720.00,
+      "name": "ReportSectiond221880a5fda4986032e",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"916f5a7e0e37cb039194\",\"layouts\":[{\"id\":0,\"position\":{\"x\":656,\"y\":0,\"width\":624,\"height\":413,\"z\":2000}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(transactionstmp.amount)\"}],\"Group\":[{\"queryRef\":\"transactionstmp.saajamaksaja\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(transactionstmp.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"saajamaksaja\"},\"Name\":\"transactionstmp.saajamaksaja\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 413.00,
+          "width": 624.00,
+          "x": 656.00,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"c215e18592209ed5274a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":433.79939209726444,\"z\":0,\"width\":1280,\"height\":285.95744680851067}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(transactionstmp.amount)\"}],\"Category\":[{\"queryRef\":\"dw DimTime.TheYear Hierarchy.TheYear\",\"active\":true},{\"queryRef\":\"dw DimTime.TheYear Hierarchy.TheMonth\",\"active\":true},{\"queryRef\":\"dw DimTime.TheYear Hierarchy.TheMonthName\",\"active\":true},{\"queryRef\":\"dw DimTime.TheYear Hierarchy.TheDay\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dw DimTime\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(transactionstmp.amount)\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Hierarchy\":\"TheYear Hierarchy\"}},\"Level\":\"TheYear\"},\"Name\":\"dw DimTime.TheYear Hierarchy.TheYear\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Hierarchy\":\"TheYear Hierarchy\"}},\"Level\":\"TheMonth\"},\"Name\":\"dw DimTime.TheYear Hierarchy.TheMonth\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Hierarchy\":\"TheYear Hierarchy\"}},\"Level\":\"TheMonthName\"},\"Name\":\"dw DimTime.TheYear Hierarchy.TheMonthName\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Hierarchy\":\"TheYear Hierarchy\"}},\"Level\":\"TheDay\"},\"Name\":\"dw DimTime.TheYear Hierarchy.TheDay\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 285.96,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 433.80,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"e4eff5330ea507a4b006\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1000,\"width\":655.5623100303951,\"height\":413.37386018237083}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(transactionstmp.amount)\"},{\"queryRef\":\"transactionstmp.saajamaksaja\"},{\"queryRef\":\"transactionstmp.selite\"},{\"queryRef\":\"transactionstmp.viesti\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(transactionstmp.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"saajamaksaja\"},\"Name\":\"transactionstmp.saajamaksaja\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"selite\"},\"Name\":\"transactionstmp.selite\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"viesti\"},\"Name\":\"transactionstmp.viesti\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"228.58973660662184D\"}}}},\"selector\":{\"metadata\":\"transactionstmp.viesti\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"132.27689374781153D\"}}}},\"selector\":{\"metadata\":\"transactionstmp.selite\"}}]}}}",
+          "filters": "[]",
+          "height": 413.37,
+          "width": 655.56,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Tulot2.0",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filterc7efa8bfe52c3a400da9\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"RawTransactions\"}},\"Property\":\"amount\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":1,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Right\":{\"Literal\":{\"Value\":\"0L\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":1}]",
+      "height": 720.00,
+      "name": "ReportSectiondb0059b60a0cbe4a1940",
+      "ordinal": 8,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"41c5f9f330c700032673\",\"layouts\":[{\"id\":0,\"position\":{\"x\":656,\"y\":0,\"width\":624,\"height\":413,\"z\":2000}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(RawTransactions.amount)\"}],\"Group\":[{\"queryRef\":\"RawTransactions.receiver\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(RawTransactions.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"receiver\"},\"Name\":\"RawTransactions.receiver\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 413.00,
+          "width": 624.00,
+          "x": 656.00,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"901c5295cb8cd5918a33\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1000,\"width\":655.5623100303951,\"height\":413.37386018237083}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(RawTransactions.amount)\"},{\"queryRef\":\"RawTransactions.receiver\"},{\"queryRef\":\"RawTransactions.message\"},{\"queryRef\":\"RawTransactions.description\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(RawTransactions.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"receiver\"},\"Name\":\"RawTransactions.receiver\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"message\"},\"Name\":\"RawTransactions.message\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"description\"},\"Name\":\"RawTransactions.description\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 413.37,
+          "width": 655.56,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"9fde0553700131ce8621\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":433.79939209726444,\"z\":0,\"width\":1280,\"height\":285.95744680851067}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(RawTransactions.amount)\"}],\"Category\":[{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Year\",\"active\":true},{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Month\",\"active\":true},{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Day\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dw DimTime\",\"Type\":0},{\"Name\":\"r\",\"Entity\":\"RawTransactions\",\"Type\":0}],\"Select\":[{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Year\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Year\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Month\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Month\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Day\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Day\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(RawTransactions.amount)\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 285.96,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 433.80,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"relationships\":[{\"source\":\"c215e18592209ed5274a\",\"target\":\"916f5a7e0e37cb039194\",\"type\":1}]}",
+      "displayName": "Menot",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"transactionstmp\"}},\"Property\":\"amount\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":3,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Right\":{\"Literal\":{\"Value\":\"0D\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":1}]",
+      "height": 720.00,
+      "name": "ReportSectioneb4d78068614670083c0",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"916f5a7e0e37cb039194\",\"layouts\":[{\"id\":0,\"position\":{\"x\":656,\"y\":0,\"width\":624,\"height\":413,\"z\":2000}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(transactionstmp.amount)\"}],\"Group\":[{\"queryRef\":\"transactionstmp.saajamaksaja\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(transactionstmp.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"saajamaksaja\"},\"Name\":\"transactionstmp.saajamaksaja\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 413.00,
+          "width": 624.00,
+          "x": 656.00,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"c215e18592209ed5274a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":433.79939209726444,\"z\":0,\"width\":1280,\"height\":285.95744680851067}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(transactionstmp.amount)\"}],\"Category\":[{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Year\",\"active\":true},{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Month\"},{\"queryRef\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Day\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dw DimTime\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(transactionstmp.amount)\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Year\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Year\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Month\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Month\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Name\":\"Variation\",\"Property\":\"TheDate\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Day\"},\"Name\":\"dw DimTime.TheDate.Variation.Date Hierarchy.Day\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 285.96,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 433.80,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"e4eff5330ea507a4b006\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1000,\"width\":655.5623100303951,\"height\":413.37386018237083}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(transactionstmp.amount)\"},{\"queryRef\":\"transactionstmp.saajamaksaja\"},{\"queryRef\":\"transactionstmp.selite\"},{\"queryRef\":\"transactionstmp.viesti\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(transactionstmp.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"saajamaksaja\"},\"Name\":\"transactionstmp.saajamaksaja\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"selite\"},\"Name\":\"transactionstmp.selite\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"viesti\"},\"Name\":\"transactionstmp.viesti\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"228.58973660662184D\"}}}},\"selector\":{\"metadata\":\"transactionstmp.viesti\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"132.27689374781153D\"}}}},\"selector\":{\"metadata\":\"transactionstmp.selite\"}}]}}}",
+          "filters": "[]",
+          "height": 413.37,
+          "width": 655.56,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"relationships\":[{\"source\":\"916f5a7e0e37cb039194\",\"target\":\"c215e18592209ed5274a\",\"type\":2},{\"source\":\"c215e18592209ed5274a\",\"target\":\"916f5a7e0e37cb039194\",\"type\":1}]}",
+      "displayName": "Pizza menot",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"transactionstmp\"}},\"Property\":\"amount\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":3,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Right\":{\"Literal\":{\"Value\":\"0D\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":1},{\"name\":\"Filterd22768ca3d16815c4cc2\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"dw customerGroup\"}},\"Property\":\"Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dw customerGroup\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Pizza'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "ReportSectioneef9f20faff661b6a091",
+      "ordinal": 7,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"916f5a7e0e37cb039194\",\"layouts\":[{\"id\":0,\"position\":{\"x\":656,\"y\":0,\"width\":624,\"height\":413,\"z\":2000,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(transactionstmp.amount)\"}],\"Group\":[{\"queryRef\":\"transactionstmp.saajamaksaja\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(transactionstmp.amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"saajamaksaja\"},\"Name\":\"transactionstmp.saajamaksaja\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 413.00,
+          "width": 624.00,
+          "x": 656.00,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"c215e18592209ed5274a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":433.79939209726444,\"z\":0,\"width\":1280,\"height\":285.95744680851067,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"lineStackedColumnComboChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(transactionstmp.amount)\"}],\"Category\":[{\"queryRef\":\"dw DimTime.TheYear Hierarchy.TheYear\",\"active\":true},{\"queryRef\":\"dw DimTime.TheYear Hierarchy.TheMonthName\",\"active\":true},{\"queryRef\":\"dw DimTime.TheYear Hierarchy.TheDay\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"transactionstmp\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dw DimTime\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(transactionstmp.amount)\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Hierarchy\":\"TheYear Hierarchy\"}},\"Level\":\"TheYear\"},\"Name\":\"dw DimTime.TheYear Hierarchy.TheYear\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Hierarchy\":\"TheYear Hierarchy\"}},\"Level\":\"TheDay\"},\"Name\":\"dw DimTime.TheYear Hierarchy.TheDay\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Hierarchy\":\"TheYear Hierarchy\"}},\"Level\":\"TheMonthName\"},\"Name\":\"dw DimTime.TheYear Hierarchy.TheMonthName\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Hierarchy\":\"TheYear Hierarchy\"}},\"Level\":\"TheYear\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"zoom\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Property\":\"Date\"}},\"type\":\"Categorical\",\"howCreated\":1,\"isHiddenInViewMode\":false},{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Property\":\"Date\"}},\"type\":\"Categorical\",\"howCreated\":1,\"isHiddenInViewMode\":false},{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"weighttmp\"}},\"Property\":\"Date\"}},\"type\":\"Advanced\",\"howCreated\":1,\"isHiddenInViewMode\":false},{\"name\":null,\"expression\":{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"dw DimTime\"}},\"Hierarchy\":\"TheYear Hierarchy\"}},\"Level\":\"TheYear\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dw DimTime\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"TheYear\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"2020L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":2}]",
+          "height": 285.96,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 433.80,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

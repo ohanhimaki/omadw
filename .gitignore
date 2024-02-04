@@ -7,3 +7,5 @@ Datas/transactions/*.csv
 Datas/weight/*.csv
 Datas/weight/weigfht2.eml
 Datas/*.json
+Reports/raportti2.0.Report/.pbi/localSettings.json
+Reports/raportti2.0.Dataset/.pbi/localSettings.json
